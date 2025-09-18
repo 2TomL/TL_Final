@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game | TL</title>
+  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="public/css/game.css">
+  <script src="public/js/navbar.js"></script>
+  <script src="public/js/soundcloud.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body class="bg-img">
+  <div id="navbar"></div>
+  <main class="page-main">
+      <h1 class="title title-red">Game</h1>
+      <section id="game" class="section-game game">
+        <div class="container noselect">
+          <div class="snake-score-ui" id="ui">
+            <h2>SCORE</h2>
+            <span id="score">00</span>
+          </div>
+          <div class="wrapper">
+            <!-- Zorg dat dit element exact zo heet, want game.js zoekt op id="canvas" -->
+            <div id="canvas"></div>
+          </div>
+          <button id="replay">
+            <i class="fas fa-play"></i>
+            RESTART
+          </button>
+        </div>
+      </section>
+  </main>
+  <script src="public/js/game.js"></script>
+</body>
+  <script src="public/js/pageScrollNav.js"></script>
+</body>
+</html>

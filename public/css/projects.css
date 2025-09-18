@@ -1,0 +1,267 @@
+/* --- Hamburger menu and fullscreen overlay --- */
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 4px;
+  margin: 4px 0;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(20,20,20,0.97);
+  z-index: 1001;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s;
+}
+.menu-overlay.open {
+  display: flex;
+}
+.menu-overlay .menu-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.2rem;
+}
+.menu-overlay .menu-link {
+  color: #fff;
+  font-size: 2.1rem;
+  font-family: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.menu-overlay .menu-link:hover {
+  color: #c00;
+}
+
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex;
+  }
+  #navbar .nav-links {
+    display: none !important;
+  }
+}
+@media (max-width: 700px) {
+  .section-projects {
+    padding-top: 0.1rem;
+  }
+  .section-projects .card {
+    max-width: 98vw;
+    min-width: 80vw;
+    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+  }
+  .section-projects .card img {
+    max-width: 95vw;
+    max-height: 38vw;
+  }
+  .carousel__controls {
+    display: none !important;
+  }
+}
+/* --- Carousel navigation arrows custom style --- */
+.carousel__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  margin-top: 4.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.carousel__prev, .carousel__next {
+  background: rgba(120,120,120,0.18);
+  border: 2px solid #c00;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px #0006;
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s, box-shadow 0.2s, transform 0.2s;
+  outline: none;
+  position: relative;
+}
+
+.carousel__prev img, .carousel__next img {
+  width: 22px !important;
+  height: 22px !important;
+  display: block;
+}
+
+.carousel__prev:hover, .carousel__next:hover {
+  background: #f8eaea;
+  border-color: #c00;
+  box-shadow: 0 4px 16px #c002;
+  transform: scale(1.08);
+}
+/* Project card icons row styling */
+/* --- CLEAN, RESPONSIVE PROJECT CARD STYLES --- */
+.section-projects .card {
+  background: #18181c;
+  border-radius: 1.1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+  padding: 1.1rem 0.7rem 1.1rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+  max-width: 220px;
+  min-width: 160px;
+  width: 100%;
+  margin: 0 8px;
+  overflow: hidden;
+}
+
+.section-projects .card img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  max-height: 160px;
+  border-radius: 0.6rem;
+  object-fit: contain;
+  background: #222;
+  display: block;
+  margin: 0 auto 0.5rem auto;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.13);
+}
+
+.project-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 34px;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.project-icon {
+  width: 23px !important;
+  height: 23px !important;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.5px;
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.section-projects .card h3 {
+  margin: 0.4rem 0 0.2rem 0;
+  font-size: 1.01rem;
+  text-align: center;
+}
+
+.section-projects .card p {
+  font-size: 0.82rem;
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+/* --- END CLEAN CARD STYLES --- */
+
+/* Projects page carousel and card styles */
+:root {
+  --crsl-bg: transparent;
+  --box-bg: #1e272e;
+  --box-shadow: #0000001c;
+  --box-shadow-border: #0000000f;
+  --box-border: #fff;
+}
+
+
+.section-projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding-top: 2.5rem;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 0;
+}
+.carousel__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0 50px 0;
+  overflow: hidden;
+}
+.carousel__slider {
+  display: flex;
+  transition: transform 0.7s cubic-bezier(.4,2,.6,1);
+  background: var(--crsl-bg);
+  align-items: stretch;
+}
+.carousel__slider__item {
+  flex: 0 0 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  transition: transform 0.7s cubic-bezier(.4,2,.6,1);
+  will-change: transform, opacity;
+}
+.carousel__prev:hover, .carousel__next:hover {
+  background: #420000;
+  transform: scale(1.12);
+  box-shadow: 0 0 24px #420000, 0 0 8px #fff;
+}
+.carousel__prev img, .carousel__next img {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+.carousel__prev i, .carousel__next i {
+  color: #420000 !important;
+  pointer-events: none;
+  transition: color 0.2s;
+}
+.carousel__prev:hover i, .carousel__next:hover i {
+  color: #fff !important;
+}
+@media (max-width: 900px) {
+  .carousel__controls {
+    gap: 1.2rem;
+    margin-top: 1rem;
+  }
+  .carousel__prev, .carousel__next {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 700px) {
+  .section-projects {
+    padding-top: 2.5rem;
+    min-height: 80vh;
+  }
+  .carousel {
+    margin-top: 4rem;
+  }
+}
