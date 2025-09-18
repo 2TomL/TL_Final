@@ -217,7 +217,7 @@ body {
 }
 
 body.bg-img {
-	background: url('/public/assets/assets/bg_normal2.png') no-repeat center center fixed;
+	background: url('public/assets/assets/bg_normal2.png') no-repeat center center fixed;
 	background-size: cover;
 }
 
