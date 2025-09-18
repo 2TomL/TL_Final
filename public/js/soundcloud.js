@@ -12,7 +12,7 @@ function setupSoundCloudPlayer() {
     iconBtn.title = 'Choose a mix';
     iconBtn.style.transition = 'filter 0.2s';
     const iconImg = document.createElement('img');
-    iconImg.src = '/public/assets/assets/swap_mix.png';
+    iconImg.src = 'public/assets/assets/swap_mix.png';
     iconImg.alt = 'Choose mix';
     iconImg.style.height = '28px';
     iconImg.style.width = '28px';

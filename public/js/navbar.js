@@ -5,14 +5,14 @@ function setupNavbar() {
     const navbar = document.getElementById('navbar');
     if (!navbar) return;
     navbar.innerHTML = `
-      <img src="/public/assets/assets/logo_TL.png" alt="Logo" class="logo" title="Go to Home page">
+  <img src="public/assets/assets/logo_TL.png" alt="Logo" class="logo" title="Go to Home page">
       <div class="soundcloud-player" id="soundcloud-player"></div>
       <nav class="nav-links">
-        <a href="index.html" class="nav-link" title="Home page">Home</a>
-        <a href="about.html" class="nav-link" title="About me">About</a>
-        <a href="projects.html" class="nav-link" title="My projects">Projects</a>
-        <a href="game.html" class="nav-link" title="Game page">Game</a>
-        <a href="contact.html" class="nav-link" title="Contact me">Contact</a>
+  <a href="index.html" class="nav-link" title="Home page">Home</a>
+  <a href="about.html" class="nav-link" title="About me">About</a>
+  <a href="projects.html" class="nav-link" title="My projects">Projects</a>
+  <a href="game.html" class="nav-link" title="Game page">Game</a>
+  <a href="contact.html" class="nav-link" title="Contact me">Contact</a>
       </nav>
     `;
 
@@ -31,11 +31,11 @@ function setupNavbar() {
         <span class="close-line close-line2"></span>
       </button>
       <div class="menu-links">
-        <a href="index.html" class="menu-link">Home</a>
-        <a href="about.html" class="menu-link">About</a>
-        <a href="projects.html" class="menu-link">Projects</a>
-        <a href="game.html" class="menu-link">Game</a>
-        <a href="contact.html" class="menu-link">Contact</a>
+  <a href="index.html" class="menu-link">Home</a>
+  <a href="about.html" class="menu-link">About</a>
+  <a href="projects.html" class="menu-link">Projects</a>
+  <a href="game.html" class="menu-link">Game</a>
+  <a href="contact.html" class="menu-link">Contact</a>
       </div>
     `;
     overlay.style.display = 'none'; // Always hidden initially

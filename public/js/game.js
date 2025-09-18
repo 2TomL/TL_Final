@@ -236,7 +236,7 @@ if (!window.__snakeGameLoaded) {
 				this.index = i;
 				this.delay = 5;
 	// SNAKE SPEED: hoe hoger, hoe trager. Standaard was 5, nu 10 voor trager spel.
-	this.delay = 10;
+	this.delay = 30;
 				this.size = W / cells;
 				this.color = 'white';
 				this.history = [];
