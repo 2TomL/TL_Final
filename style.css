@@ -337,4 +337,8 @@ main {
 	main {
 		padding: 1rem 0.5rem;
 	}
+	html, body, main {
+		overflow-y: auto !important;
+		max-height: 100vh;
+	}
 }

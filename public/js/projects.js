@@ -50,6 +50,35 @@
   }
 
   function update3D() {
+    if (window.innerWidth <= 700) {
+      // Mobiel: geen 3D, alleen actieve card tonen
+      for (let i = 0; i < itemCount; i++) {
+        const item = items[i];
+        if (i === currIndex) {
+          item.style.display = 'flex';
+          item.style.opacity = '1';
+          item.style.scale = '1';
+          item.style.pointerEvents = 'auto';
+          item.style.zIndex = '2';
+          item.classList.add('carousel__slider__item--active');
+        } else {
+          item.style.display = 'none';
+          item.classList.remove('carousel__slider__item--active');
+        }
+        // Reset transform op mobiel
+        item.style.transform = 'none';
+      }
+      // Reset slider transform
+      slider.style.transform = 'none';
+      // Dynamisch breedte/hoogte van slider aanpassen aan actieve card
+      const activeCard = items[currIndex].querySelector('.card');
+      if (activeCard) {
+        slider.style.width = activeCard.offsetWidth + 'px';
+        slider.style.height = activeCard.offsetHeight + 'px';
+      }
+      return;
+    }
+    // Desktop: 3D carousel
     for (let i = 0; i < itemCount; i++) {
       const item = items[i];
       let rel = i - currIndex;
@@ -64,6 +93,7 @@
         if (itemCount === 3 && rel === -2) rel = 1;
       }
       let angle = theta * rel;
+      item.style.display = 'flex';
       item.style.position = 'absolute';
       item.style.top = '0';
       item.style.left = '0';
@@ -92,6 +122,12 @@
         item.classList.remove('carousel__slider__item--active');
       }
     }
+    // Dynamisch breedte/hoogte van slider aanpassen aan actieve card
+    const activeCard = items[currIndex].querySelector('.card');
+    if (activeCard) {
+      slider.style.width = activeCard.offsetWidth + 'px';
+      slider.style.height = activeCard.offsetHeight + 'px';
+    }
     slider.style.transform = `translateZ(${-radius}px)`;
   }
 
@@ -100,10 +136,14 @@
   function prev() {
     currIndex = (currIndex - 1 + itemCount) % itemCount;
     update3D();
+    updateGeometry();
+    update3D();
   }
 
   function next() {
     currIndex = (currIndex + 1) % itemCount;
+    update3D();
+    updateGeometry();
     update3D();
   }
 

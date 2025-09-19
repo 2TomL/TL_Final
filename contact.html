@@ -5,16 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | TL</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="public/css/contact.css">
   <script src="public/js/navbar.js"></script>
   <script src="public/js/soundcloud.js"></script>
   <script src="app.js" defer></script>
 </head>
 <body class="bg-img">
   <div id="navbar"></div>
-  <main class="page-main">
-  <h1 class="title title-red">Contact</h1>
-    <p class="page-text">Contacteer mij...</p>
-  </main>
+  <section id="contact" class="contact">
+    <div class="container">
+      <h1 class="section-heading">Contact</h1>
+      <div class="card-wrapper">
+        <div class="card">
+          <a href="mailto:lamerstom.123@gmail.com" class="contact-link">
+            <img src="public/icons/icons/mail.png" alt="Email">
+            <h1>Email</h1>
+            <h6>lamerstom.123@gmail.com</h6>
+          </a>
+        </div>
+        <div class="card">
+          <a href="https://en.wikipedia.org/wiki/Brussels" target="_blank" rel="noopener" class="contact-link">
+            <img src="public/icons/icons/atomium.png" alt="Location">
+            <h1>Location</h1>
+            <h6>Brussels, Belgium</h6>
+          </a>
+        </div>
+      </div>
+      <form action="https://formspree.io/f/xkndvpqr" method="POST">
+        <input type="hidden" name="_subject" value="Contact via portfolio Tom Lamers">
+        <input type="hidden" name="_next" value="thanks.html">
+        <div class="input-wrap">
+          <input type="text" name="name" placeholder="Your Name *" required>
+          <input type="email" name="_replyto" placeholder="Your Email *" required>
+        </div>
+        <div class="input-wrap-2">
+          <input type="text" name="subject" placeholder="Your Subject..." required>
+          <textarea name="message" cols="30" rows="10" placeholder="Your Message..." required></textarea>
+        </div>
+        <div class="btn-wrapper">
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </div>
+        <div id="form-success">Thank you! Your message has been sent successfully!</div>
+      </form>
+    </div>
+  </section>
+  <footer class="footer">
+  <img class="footer-logo" src="public/assets/assets/logo_TL.png" alt="Footer Logo">
+    <div class="footer-socials">
+  <a href="https://github.com/2TomL" target="_blank" rel="noopener" title="GitHub"><img class="footer-social-icon" src="public/icons/icons/github2.png" alt="GitHub"></a>
+  <a href="https://www.linkedin.com/in/tom-lamers-8024957/" target="_blank" rel="noopener" title="LinkedIn"><img class="footer-social-icon" src="public/icons/icons/linkedin.png" alt="LinkedIn"></a>
+  <a href="https://ra.co/dj/mikeymike" class="footer-social-icon" target="_blank" rel="noopener" title="RA MikeyMike"><img class="footer-social-icon" src="public/icons/icons/ra-Mike.png" alt="RA MikeyMike"></a>
+    </div>
+    <div class="copyright">
+      Made by Tom Lamers © 2025
+    </div>
+  </footer>
 </body>
   <script src="public/js/pageScrollNav.js"></script>
 </body>

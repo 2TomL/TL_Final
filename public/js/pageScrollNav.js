@@ -35,9 +35,9 @@
       }
     }
     if (scrollTimeout) return;
-    if (e.deltaY > 40) {
+    if (e.deltaY > 120) {
       goToPage(idx + 1);
-    } else if (e.deltaY < -40) {
+    } else if (e.deltaY < -120) {
       goToPage(idx - 1);
     }
     scrollTimeout = setTimeout(() => { scrollTimeout = null; }, 800);
@@ -72,7 +72,7 @@
     }
     touchEndY = e.changedTouches[0].clientY;
     const dy = touchEndY - touchStartY;
-    if (Math.abs(dy) > 60) {
+    if (Math.abs(dy) > 140) {
       if (dy < 0) {
         goToPage(idx + 1); // swipe up
       } else {

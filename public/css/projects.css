@@ -55,16 +55,33 @@
 }
 @media (max-width: 700px) {
   .section-projects {
-    padding-top: 0.1rem;
+    padding-top: 0;
+    margin-top: 0.1rem;
+  /* min-height: auto; verwijderd voor compatibiliteit */
+  }
+  .title.title-red {
+    margin-bottom: 0.3rem !important;
+  }
+  .carousel {
+    margin-top: 0 !important;
+  }
+  .carousel__body {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  .carousel__slider {
+    margin-top: 0 !important;
   }
   .section-projects .card {
-    max-width: 98vw;
-    min-width: 80vw;
-    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+    max-width: 90vw;
+    min-width: 70vw;
+    width: 90vw;
+    padding: 0.7rem 0.3rem 0.7rem 0.3rem;
+    margin: 0 2vw;
   }
   .section-projects .card img {
-    max-width: 95vw;
-    max-height: 38vw;
+    max-width: 80vw;
+    max-height: 28vw;
   }
   .carousel__controls {
     display: none !important;
@@ -76,8 +93,10 @@
   justify-content: center;
   align-items: center;
   gap: 2.5rem;
-  margin-top: 4.5rem;
+  margin-top: 2.5rem;
   margin-bottom: 2.5rem;
+  position: static !important;
+  z-index: 1;
 }
 
 .carousel__prev, .carousel__next {
@@ -93,7 +112,8 @@
   cursor: pointer;
   transition: background 0.2s, border 0.2s, box-shadow 0.2s, transform 0.2s;
   outline: none;
-  position: relative;
+  position: static !important;
+  z-index: 1;
 }
 
 .carousel__prev img, .carousel__next img {
@@ -119,11 +139,15 @@
   flex-direction: column;
   align-items: center;
   transition: box-shadow 0.2s;
-  max-width: 220px;
-  min-width: 160px;
-  width: 100%;
+  max-width: 240px;
+  min-width: 180px;
+  width: 220px;
+  min-height: 240px;
+  max-height: 280px;
+  height: 270px;
   margin: 0 8px;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .section-projects .card img {
@@ -144,7 +168,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-top: 34px;
+  margin-top: 10px;
   width: 100%;
   flex-wrap: nowrap;
 }
