@@ -1,7 +1,53 @@
 // SoundCloud player logic (TypeScript)
 function setupSoundCloudPlayer() {
-    const playerDiv = document.getElementById('soundcloud-player');
-    if (!playerDiv) return;
+        const playerDiv = document.getElementById('soundcloud-player');
+        if (!playerDiv) return;
+
+                // Add custom volume dropdown
+                const volumeBtn = document.createElement('button');
+                volumeBtn.id = 'soundcloud-volume-btn';
+                volumeBtn.title = 'Volume';
+                const volIcon = document.createElement('img');
+                volIcon.src = 'public/assets/assets/volume.png';
+                volIcon.alt = 'Volume';
+                volumeBtn.appendChild(volIcon);
+                volumeBtn.style.marginLeft = '0.7rem';
+
+                const volumeDropdown = document.createElement('div');
+                volumeDropdown.id = 'soundcloud-volume-dropdown';
+                const volumeSlider = document.createElement('input');
+                volumeSlider.type = 'range';
+                volumeSlider.id = 'soundcloud-volume';
+                volumeSlider.min = '0';
+                volumeSlider.max = '100';
+                volumeSlider.value = '100';
+                volumeSlider.title = 'Volume';
+                volumeDropdown.appendChild(volumeSlider);
+
+                // Toggle dropdown
+                volumeBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const open = volumeDropdown.style.display !== 'block';
+                    volumeDropdown.style.display = open ? 'block' : 'none';
+                    volumeBtn.classList.toggle('active', open);
+                });
+                // Hide dropdown on click outside
+                document.addEventListener('click', (e) => {
+                    if (!volumeDropdown.contains(e.target) && !volumeBtn.contains(e.target)) {
+                        volumeDropdown.style.display = 'none';
+                        volumeBtn.classList.remove('active');
+                    }
+                });
+
+        // Load SoundCloud Widget API
+        let widgetScriptLoaded = false;
+        function loadWidgetScript(cb) {
+            if (widgetScriptLoaded) return cb();
+            const script = document.createElement('script');
+            script.src = 'https://w.soundcloud.com/player/api.js';
+            script.onload = () => { widgetScriptLoaded = true; cb(); };
+            document.body.appendChild(script);
+        }
 
     // Create icon button for mix selection
     const iconBtn = document.createElement('button');
@@ -44,8 +90,8 @@ function setupSoundCloudPlayer() {
         }
     });
     const iframe = document.createElement('iframe');
-        iframe.width = '100';
-        iframe.height = '20';
+    iframe.width = '100';
+    iframe.height = '20';
     iframe.allow = 'autoplay';
     iframe.frameBorder = 'no';
     iframe.scrolling = 'no';
@@ -111,6 +157,8 @@ function setupSoundCloudPlayer() {
     });
     playerDiv.style.position = 'relative';
     playerDiv.appendChild(iframe);
+    playerDiv.appendChild(volumeBtn);
+    playerDiv.appendChild(volumeDropdown);
     playerDiv.appendChild(iconBtn);
     playerDiv.appendChild(select);
     // Adjust icon/select position to right of player
@@ -118,6 +166,44 @@ function setupSoundCloudPlayer() {
     select.style.left = 'auto';
     select.style.right = '0';
     select.style.top = '28px';
+    volumeDropdown.style.right = '2.5rem';
+    volumeDropdown.style.top = '28px';
+
+        // Volume control logic using SoundCloud Widget API
+        let widget = null;
+        function setWidgetVolume(val) {
+            if (widget && typeof widget.setVolume === 'function') {
+                widget.setVolume(val);
+            }
+        }
+        function setupWidget() {
+            if (!window.SC || !window.SC.Widget) return;
+            widget = window.SC.Widget(iframe);
+            widget.bind(window.SC.Widget.Events.READY, function() {
+                setWidgetVolume(Number(volumeSlider.value));
+            });
+            volumeSlider.addEventListener('input', function() {
+                setWidgetVolume(Number(this.value));
+            });
+        }
+        loadWidgetScript(setupWidget);
+        // Re-setup widget on mix change
+        select.addEventListener('change', () => {
+            setTimeout(() => loadWidgetScript(setupWidget), 500);
+        });
+        // Also re-setup widget on iframe src change
+        iframe.addEventListener('load', () => {
+            setTimeout(() => loadWidgetScript(setupWidget), 500);
+        });
+// Import custom volume slider CSS
+const volCss = document.createElement('link');
+volCss.rel = 'stylesheet';
+volCss.href = 'public/css/soundcloud-volume.css';
+document.head.appendChild(volCss);
+const volDropCss = document.createElement('link');
+volDropCss.rel = 'stylesheet';
+volDropCss.href = 'public/css/soundcloud-volume-dropdown.css';
+document.head.appendChild(volDropCss);
 }
 window.setupSoundCloudPlayer = setupSoundCloudPlayer;
 //# sourceMappingURL=soundcloud.js.map

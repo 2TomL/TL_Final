@@ -1,3 +1,8 @@
+@media (max-width: 900px) {
+	.hamburger {
+		top: 0.6rem !important;
+	}
+}
 .title-baise {
 	font-family: 'Baise', Arial, Helvetica, sans-serif;
 }
@@ -6,7 +11,7 @@
 	color: #fff;
 	position: absolute;
 	right: 1.2rem;
-	top: 1.2rem;
+	top: 0.4rem;
 	width: 36px;
 	height: 36px;
 	z-index: 1002;
@@ -14,7 +19,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-    display: none;
+	display: none;
 }
 .hamburger span {
 	display: block;
@@ -321,17 +326,18 @@ main {
 
 @media (max-width: 600px) {
 	#navbar {
-		flex-direction: column;
-		align-items: flex-start;
+		flex-direction: row;
+		align-items: center;
 		padding: 0.5rem 0.5rem;
 	}
 	#navbar .logo {
 		height: 36px;
-		margin-bottom: 0.5rem;
+		margin-bottom: 0;
+		margin-right: 0.7rem;
 	}
 	#navbar .soundcloud-player {
-		margin: 0 0 0.5rem 0;
-		width: 100%;
+		margin: 0 0.7rem 0 0;
+		width: auto;
 		justify-content: flex-start;
 	}
 	#navbar .nav-links {
