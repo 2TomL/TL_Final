@@ -38,8 +38,9 @@
   // "verbatimModuleSyntax": true,
   "moduleResolution": "bundler",
     "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true,
+  "noUncheckedSideEffectImports": true,
+  "moduleDetection": "force",
+  "skipLibCheck": true,
+  "forceConsistentCasingInFileNames": true,
   }
 }

@@ -1,3 +1,25 @@
+/* Home page background canvas (was inline style) */
+.bg-canvas {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: -1;
+	display: block;
+}
+/* Projects page heading spacing */
+.projects-heading {
+	margin-top: 3.5rem;
+}
+
+/* Project video button (removes inline styles) */
+.project-video-btn {
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+}
 @media (max-width: 900px) {
 	.hamburger {
 		top: 0.6rem !important;
@@ -218,10 +240,7 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-track {
 	background: #111;
 }
-body {
-	scrollbar-color: #222 #111;
-	scrollbar-width: thin;
-}
+/* Removed scrollbar-color and scrollbar-width for better browser compatibility */
 
 body.bg-img {
 	background: url('public/assets/assets/bg_normal2.png') no-repeat center center fixed;
@@ -415,34 +434,23 @@ main {
   outline: none;
 }
 /* Subtle animated glow for navigation arrows */
+
 .arrow-btn img {
-  width: 32px;
-  height: 32px;
-  display: block;
-  filter: drop-shadow(0 0 3px #ff3333) drop-shadow(0 0 6px #fff2);
-  animation: arrow-glow 1.6s ease-in-out infinite alternate;
+	width: 32px;
+	height: 32px;
+	display: block;
+	transition: transform 0.12s cubic-bezier(.4,2,.6,1), box-shadow 0.12s;
 }
-@keyframes arrow-glow {
-  0% {
-    filter: drop-shadow(0 0 3px #ff3333) drop-shadow(0 0 6px #fff2);
-    transform: scale(1);
-  }
-  60% {
-    filter: drop-shadow(0 0 8px #ff3333) drop-shadow(0 0 12px #fff3);
-    transform: scale(1.10);
-  }
-  100% {
-    filter: drop-shadow(0 0 3px #ff3333) drop-shadow(0 0 6px #fff2);
-    transform: scale(1);
-  }
+
+.arrow-btn:hover img,
+.arrow-btn:focus img {
+	transform: scale(0.92) translateY(2px);
+	filter: drop-shadow(0 4px 10px #0005) drop-shadow(0 1px 0 #fff2);
 }
-.arrow-btn:hover {
-  transform: scale(1.12);
-}
-.arrow-btn:hover img {
-  filter: drop-shadow(0 0 12px #ff3333) drop-shadow(0 0 16px #fff4);
-  transform: scale(1.14);
-  transition: filter 0.2s, transform 0.2s;
+
+.arrow-btn:active img {
+	transform: scale(0.88) translateY(3px);
+	filter: drop-shadow(0 2px 4px #0007) drop-shadow(0 1px 0 #fff2);
 }
 @media (max-width: 900px) {
   .page-arrows {
