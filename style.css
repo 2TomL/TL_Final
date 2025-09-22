@@ -193,7 +193,7 @@ html, body {
 }
 @font-face {
 	font-family: 'Baise';
-	src: url('/public/font/baise/Baise.ttf') format('truetype');
+	src: url('public/font/baise/Baise.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -388,4 +388,69 @@ main {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* Page navigation arrows (desktop only, bottom right) */
+.page-arrows {
+  position: fixed;
+  right: 2.2rem;
+  bottom: 2.2rem;
+  top: auto;
+  transform: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  z-index: 1200;
+}
+.arrow-btn {
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+  outline: none;
+}
+/* Subtle animated glow for navigation arrows */
+.arrow-btn img {
+  width: 32px;
+  height: 32px;
+  display: block;
+  filter: drop-shadow(0 0 3px #ff3333) drop-shadow(0 0 6px #fff2);
+  animation: arrow-glow 1.6s ease-in-out infinite alternate;
+}
+@keyframes arrow-glow {
+  0% {
+    filter: drop-shadow(0 0 3px #ff3333) drop-shadow(0 0 6px #fff2);
+    transform: scale(1);
+  }
+  60% {
+    filter: drop-shadow(0 0 8px #ff3333) drop-shadow(0 0 12px #fff3);
+    transform: scale(1.10);
+  }
+  100% {
+    filter: drop-shadow(0 0 3px #ff3333) drop-shadow(0 0 6px #fff2);
+    transform: scale(1);
+  }
+}
+.arrow-btn:hover {
+  transform: scale(1.12);
+}
+.arrow-btn:hover img {
+  filter: drop-shadow(0 0 12px #ff3333) drop-shadow(0 0 16px #fff4);
+  transform: scale(1.14);
+  transition: filter 0.2s, transform 0.2s;
+}
+@media (max-width: 900px) {
+  .page-arrows {
+    display: none !important;
+  }
+}
+
+/* Hide navigation arrow if .hide-arrow is set */
+.hide-arrow {
+  display: none !important;
 }
