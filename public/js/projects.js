@@ -50,42 +50,14 @@
   }
 
   function update3D() {
-    if (window.innerWidth <= 700) {
-      // Mobiel: geen 3D, alleen actieve card tonen
-      for (let i = 0; i < itemCount; i++) {
-        const item = items[i];
-        if (i === currIndex) {
-          item.style.display = 'flex';
-          item.style.opacity = '1';
-          item.style.scale = '1';
-          item.style.pointerEvents = 'auto';
-          item.style.zIndex = '2';
-          item.classList.add('carousel__slider__item--active');
-        } else {
-          item.style.display = 'none';
-          item.classList.remove('carousel__slider__item--active');
-        }
-        // Reset transform op mobiel
-        item.style.transform = 'none';
-      }
-      // Reset slider transform
-      slider.style.transform = 'none';
-      // Dynamisch breedte/hoogte van slider aanpassen aan actieve card
-      const activeCard = items[currIndex].querySelector('.card');
-      if (activeCard) {
-        slider.style.width = activeCard.offsetWidth + 'px';
-        slider.style.height = activeCard.offsetHeight + 'px';
-      }
-      return;
-    }
-    // Desktop: 3D carousel
+    // Always use 3D carousel, also on mobile
     for (let i = 0; i < itemCount; i++) {
       const item = items[i];
       let rel = i - currIndex;
       // wrap-around logic
       if (rel < -Math.floor(itemCount/2)) rel += itemCount;
       if (rel > Math.floor(itemCount/2)) rel -= itemCount;
-      // Special case for 3 of 4 items: altijd prev/next tonen
+      // Special case for 3 of 4 items: always show prev/next
       if (itemCount <= 4) {
         if (rel === -(itemCount-1)) rel = 1;
         if (rel === (itemCount-1)) rel = -1;
@@ -101,7 +73,7 @@
       item.style.backfaceVisibility = 'hidden';
       item.style.transition = 'transform 0.9s cubic-bezier(.4,2,.6,1), opacity 0.5s, scale 0.5s';
       item.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
-      // Toon altijd de middelste, links en rechts
+      // Show always the center, left and right
       if (rel === 0) {
         item.style.opacity = '1';
         item.style.scale = '1';
@@ -122,13 +94,19 @@
         item.classList.remove('carousel__slider__item--active');
       }
     }
-    // Dynamisch breedte/hoogte van slider aanpassen aan actieve card
-    const activeCard = items[currIndex].querySelector('.card');
-    if (activeCard) {
-      slider.style.width = activeCard.offsetWidth + 'px';
-      slider.style.height = activeCard.offsetHeight + 'px';
-    }
+    // Dynamically adjust slider size to active card
+    let maxCardHeight = 0;
+    items.forEach(item => {
+      const card = item.querySelector('.card');
+      if (card) {
+        maxCardHeight = Math.max(maxCardHeight, card.offsetHeight);
+      }
+    });
+    slider.style.width = 'fit-content';
+    slider.style.margin = '0 auto';
+    slider.style.left = '';
     slider.style.transform = `translateZ(${-radius}px)`;
+    slider.style.height = (maxCardHeight + 80) + 'px';
   }
 
 
