@@ -454,3 +454,9 @@ main {
 .hide-arrow {
   display: none !important;
 }
+
+/* Hide hamburger when menu is open */
+.menu-overlay.open ~ .hamburger,
+.menu-overlay.open + .hamburger {
+  display: none !important;
+}
