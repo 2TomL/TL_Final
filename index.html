@@ -9,21 +9,33 @@
   <script src="public/js/soundcloud.js"></script>
   <script src="public/js/bg.js" type="module"></script>
   <script src="app.js" defer></script>
-  <meta property="og:image" content="https://2toml.github.io/TL_Final/public/assets/web-pic.png" />
+
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:title" content="Tom Lamers Portfolio" />
+  <meta property="og:description" content="Discover the work and projects of Tom Lamers." />
+  <meta property="og:image" content="https://2toml.github.io/TL_Final/public/assets/assets/web-pic.png" />
   <meta property="og:url" content="https://2toml.github.io/TL_Final/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
 </head>
 <body>
+  <!-- Loader overlay -->
+  <div id="loader-overlay">
+    <div class="loader-spinner"></div>
+  </div>
+
   <canvas id="bg-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;display:block;"></canvas>
   <div id="navbar"></div>
   <main>
     <div class="home-center-wrapper">
-  <h1 class="section-heading"><span class="title-baise">Tom.</span> <span class="title-red">LAMERS</span></h1>
+      <h1 class="section-heading"><span class="title-baise">Tom.</span> <span class="title-red">LAMERS</span></h1>
       <p class="page-text">Welcome to my personal portfolio website.<br>
       I am passionate about design and development.<br>
       Explore my work and projects below!</p>
     </div>
   </main>
 </body>
-  <script src="public/js/pageScrollNav.js"></script>
+<script src="public/js/loader.js"></script>
+<script src="public/js/pageScrollNav.js"></script>
 </body>
 </html>
