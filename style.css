@@ -194,7 +194,7 @@ html, body {
 }
 @font-face {
 	font-family: 'Baise';
-	src: url('/public/font/font/baise/Baise.ttf') format('truetype');
+	src: url('/public/font/baise/Baise.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
