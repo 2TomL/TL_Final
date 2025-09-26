@@ -1,5 +1,3 @@
-
-
 # TL Portfolio
 
 Welcome to the portfolio of Tom Lamers — frontend developer and visual prototyping expert. Here you'll discover my projects, design philosophy, and contact options. The site is built with HTML, CSS, TypeScript/JavaScript and is fully responsive.
@@ -21,6 +19,10 @@ npx live-server .
 
 ## 🎨 Projects
 
+🧠 **Tiffany Nauts**  
+Website for clinical psychologist Tiffany Nauts. Clean design, focus on accessibility and trust. Info and contact site.  
+[Live site](https://2toml.github.io/Psycho_Tiff/) | [GitHub](https://github.com/2TomL/Psycho_Tiff)
+
 🥃 **De STrooperij**  
 Event website for an artistic collective. Focus on atmosphere, typography, and responsive storytelling.  
 [Live site](https://destrooperij.be/) | [GitHub](https://github.com/2TomL/De_STrooperij_FINAL)
@@ -40,7 +42,7 @@ Visually bold portfolio for DJ Swordz. Animations, typography, and branding tail
 💿 **Recordshop Showcase**  
 Showcase for Doctor Vinyl. Retro visuals, vinyl vibes, and a streamlined frontend.  
 [Live site](https://2toml.github.io/Recordshop_Showcase_frontend/) | [GitHub](https://github.com/2TomL/doctorvinyl-Final)
-This version exists with Java backend and a mysql db.
+This version also exists with a Java backend and MySQL database.
 
 🥪 **Sandwichbar**  
 Minimalist website for a local sandwich bar. Focus on speed, readability, and mobile UX.  
