@@ -19,17 +19,17 @@
 /* About page layout */
 .about-content {
 	display: flex;
-    align-items: center;
-	gap: 2.5rem;
+    align-items: flex-start;
+	gap: 4.5rem;
 	margin-top: 0;
 	margin-bottom: 2.5rem;
-	max-width: 900px;
+	max-width: 850px;
 	margin-left: auto;
 	margin-right: auto;
 }
 .about-photo {
-	width: 240px;
-	height: 340px;
+	width: 270px;
+	height: 390px;
 	object-fit: cover;
 	border-radius: 0;
 	box-shadow: 0 2px 16px rgba(0,0,0,0.25);
@@ -40,28 +40,30 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
+	max-width: 420px;
 }
 .about-text-icons .page-text {
-	text-align: center;
+	text-align: left;
 }
 .about-icons {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 1.1rem;
+	gap: 0.7rem;
 	margin-top: 1.5rem;
-	justify-content: center;
+	justify-content: flex-start;
+	max-width: 420px;
 }
 .about-icons img {
-		width: 32px;
-		height: 32px;
-		object-fit: contain;
-		background: #181818;
-		border-radius: 50%;
-		border: 2.5px solid #ff3333;
-		box-shadow: 0 1px 6px rgba(0,0,0,0.18);
-		transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
-		cursor: pointer;
+	width: 32px;
+	height: 32px;
+	object-fit: contain;
+	background: #181818;
+	border-radius: 50%;
+	border: 2.5px solid #ff3333;
+	box-shadow: 0 1px 6px rgba(0,0,0,0.18);
+	transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+	cursor: pointer;
 }
 .about-icons img:hover {
 		transform: scale(1.13) rotate(-4deg);
@@ -73,16 +75,26 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 1.5rem;
+		max-width: 98vw;
 	}
-		.about-photo {
-			width: 160px;
-			height: 160px;
-		}
-		.about-icons img {
-			width: 32px;
-			height: 32px;
-		}
+	.about-photo {
+		width: 160px;
+		height: 160px;
+	}
+	.about-icons img {
+		width: 32px;
+		height: 32px;
+	}
 	.about-icons {
 		gap: 0.7rem;
+		max-width: 98vw;
+		justify-content: center;
+	}
+	.about-text-icons {
+		align-items: center;
+		max-width: 98vw;
+	}
+	.about-text-icons .page-text {
+		text-align: center;
 	}
 }
