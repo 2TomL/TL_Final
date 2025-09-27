@@ -33,7 +33,7 @@ Portfolio for artist Kim Martini. Branding and visuals inspired by her musical e
 
 🎛️ **Mikey’s Magic Mixing-tool**  
 Web app for DJs: upload tracks, generate a setlist, and download your mix. Built with a focus on UX and audio logic.  
-[GitHub](https://github.com/2TomL/Mikey-s-Magic-Mixer-tool)
+[Video demo](public/assets/videos/Desktop%202025.08.26%20-%2020.32.04.03.mp4) | [GitHub](https://github.com/2TomL/Mikey-s_Magic_Mixer-tool)
 
 ⚔️ **DJ Swordz**  
 Visually bold portfolio for DJ Swordz. Animations, typography, and branding tailored to his style.  
