@@ -72,16 +72,16 @@
             </div>
             <div class="carousel__slider__item">
               <div class="card">
-                <a href="#" title="Watch video">
+                <a href="#" onclick="openMixmasterVideo(event)" title="Watch video">
                   <img src="public/assets/projects/Project_MMMt.png" alt="Mikey's Magic Mixing-tool" width="220" height="140" loading="lazy">
                 </a>
                 <h3>Mikeys Magic Mixing-tool</h3>
                 <p>DJ set generator. Upload tracks, generate setlist, download your mix.</p>
                 <div class="project-links">
-                  <button class="project-link project-video-btn" type="button" title="Watch video" onclick="openVideoModal()">
+                  <a class="project-link" href="#" onclick="openMixmasterVideo(event)" title="Watch video">
                     <img src="public/assets/projects/play.png" alt="Watch video" class="project-icon">
-                  </button>
-                  <a class="project-link" href="https://github.com/2TomL/Mikey-s-Magic-Mixer-tool" target="_blank" rel="noopener" title="View on GitHub">
+                  </a>
+                  <a class="project-link" href="https://github.com/2TomL/Mikey-s_Magic_Mixer-tool" target="_blank" rel="noopener" title="View on GitHub">
                     <img src="public/assets/projects/github.png" alt="GitHub" class="project-icon">
                   </a>
                 </div>
@@ -204,5 +204,30 @@
   </div>
 </body>
   <script src="public/js/pageScrollNav.js"></script>
+  <script>
+function openMixmasterVideo(e) {
+  e.preventDefault();
+  const videoUrl = 'public/assets/videos/Desktop 2025.08.26 - 20.32.04.03.mp4';
+  const videoModal = document.createElement('div');
+  videoModal.style.position = 'fixed';
+  videoModal.style.top = '0';
+  videoModal.style.left = '0';
+  videoModal.style.width = '100vw';
+  videoModal.style.height = '100vh';
+  videoModal.style.background = 'rgba(0,0,0,0.92)';
+  videoModal.style.zIndex = '9999';
+  videoModal.style.display = 'flex';
+  videoModal.style.alignItems = 'center';
+  videoModal.style.justifyContent = 'center';
+  videoModal.innerHTML = `
+    <video src="${videoUrl}" controls autoplay style="max-width:90vw; max-height:80vh; border-radius:12px; box-shadow:0 2px 32px #000; background:#111;" volume="0.3"></video>
+    <button style="position:absolute;top:2vw;right:2vw;font-size:2rem;background:none;border:none;color:#fff;cursor:pointer;z-index:10001;" onclick="this.parentElement.remove()">&times;</button>
+  `;
+  document.body.appendChild(videoModal);
+  // Set volume lower after autoplay
+  const vid = videoModal.querySelector('video');
+  if (vid) vid.volume = 0.3;
+}
+</script>
 </body>
 </html>
