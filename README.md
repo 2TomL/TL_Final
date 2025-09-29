@@ -60,6 +60,10 @@ Online tool to mix audio samples. UI inspired by hardware samplers.
 Snake game + videogame database experiment. Built with Angular.  
 [GitHub](https://github.com/2TomL/ng-video-game-db)
 
+📱 **Exclusive Mobile App for QR-scan**  
+A mobile-first web app for QR code scanning and exclusive content access. Designed for street events and interactive experiences.  
+[Live site](https://2toml.github.io/2TomL-StreetBeats_V1/) | [GitHub](https://github.com/2TomL/2TomL-StreetBeats_V1)
+
 ## 📬 Contact
 Use the contact form on the site or email lamerstom.123@gmail.com.
 
