@@ -119,6 +119,7 @@
 .game #replay svg {
   margin-right: 8px;
 }
+/* Mobile game canvas adjustments for different devices */
 @media (max-width: 600px) {
   .game .wrapper,
   #canvas,
@@ -132,6 +133,31 @@
     margin: 0 auto;
     box-sizing: border-box;
   }
+}
+
+/* Smaller mobile devices */
+@media (max-width: 480px) {
+  .game .wrapper,
+  #canvas,
+  .game canvas {
+    width: 90vw !important;
+    height: 90vw !important;
+    max-width: 90vw !important;
+    max-height: 90vw !important;
+  }
+}
+
+/* Very small devices */
+@media (max-width: 360px) {
+  .game .wrapper,
+  #canvas,
+  .game canvas {
+    width: 95vw !important;
+    height: 95vw !important;
+    max-width: 95vw !important;
+    max-height: 95vw !important;
+  }
+}
   .btn.btn-secondary {
     display: none !important;
   }

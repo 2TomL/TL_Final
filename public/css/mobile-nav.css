@@ -1,4 +1,4 @@
-/* Mobile Bottom Navigation - Only visible on mobile */
+/* Mobile Bottom Navigation - Responsive for all mobile devices */
 @media (max-width: 700px) {
   .phone {
     position: fixed;
@@ -137,6 +137,37 @@
 
   .page-main {
     padding-bottom: 100px;
+  }
+}
+
+/* Additional mobile device adjustments */
+@media (max-width: 480px) {
+  .phone label > img {
+    width: 22px;
+    height: 22px;
+  }
+  .circle {
+    width: 55px;
+    height: 55px;
+  }
+  .indicator {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+@media (max-width: 360px) {
+  .phone label > img {
+    width: 20px;
+    height: 20px;
+  }
+  .circle {
+    width: 50px;
+    height: 50px;
+  }
+  .indicator {
+    width: 60px;
+    height: 60px;
   }
 }
 

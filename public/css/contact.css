@@ -1,17 +1,25 @@
+/* Mobile contact adjustments - consolidated */
 @media (max-width: 700px) {
   .input-wrap input[name="name"] {
-    max-width: 135px;
-    flex: 0 0 135px;
+    max-width: 120px;
+    flex: 0 0 120px;
   }
   .input-wrap input[name="_replyto"] {
     max-width: 150px;
     flex: 0 0 150px;
   }
-}
-@media (max-width: 700px) {
-  .input-wrap input[name="name"] {
-    max-width: 120px;
-    flex: 0 0 120px;
+  .card-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  .footer-logo {
+    width: 56px;
+    height: 38px;
+  }
+  .footer-social-icon {
+    width: 28px;
+    height: 28px;
   }
 }
 /* Contact section styles */
@@ -187,18 +195,4 @@ form {
   margin-top: 0.3rem;
   text-align: center;
 }
-@media (max-width: 700px) {
-  .card-wrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: 1.2rem;
-  }
-  .footer-logo {
-    width: 56px;
-    height: 38px;
-  }
-  .footer-social-icon {
-    width: 28px;
-    height: 28px;
-  }
-}
+

@@ -1,12 +1,4 @@
-.carousel__slider__item:first-child .card {
-  margin-top: 0.1rem;
-  height: 270px !important;
-  max-height: 280px !important;
-  min-height: 240px !important;
-}
-.carousel__slider__item:first-child .card {
-  margin-top: 0.5rem;
-}
+
 /* Section heading style for all main titles */
 .section-heading {
   font-family: 'Baise', Arial, Helvetica, sans-serif;
@@ -22,9 +14,50 @@
     0 0 0.5px #fff;
 }
 
+/* Mobile styles consolidated */
 @media (max-width: 700px) {
   .section-heading {
     margin-bottom: 1.8rem; /* keep tighter spacing on mobile */
+  }
+  
+  .section-projects {
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+    min-height: 85vh;
+  }
+  .title.title-red {
+    margin-bottom: 0.5rem !important;
+  }
+  .carousel {
+    margin-top: 3rem !important;
+  }
+  .carousel__body {
+    margin-top: 0.5rem !important;
+    padding-top: 0.5rem !important;
+  }
+  .carousel__slider {
+    margin-top: 0.5rem !important;
+  }
+  .section-projects .card {
+    max-width: 80vw;
+    min-width: 60vw;
+    width: 80vw;
+    height: auto;
+    max-height: 60vh;
+    padding: 0.5rem 0.3rem 0.5rem 0.3rem;
+    margin: 0 2vw;
+  }
+  .section-projects .card img {
+    max-width: 70vw;
+    max-height: 22vw;
+  }
+  .carousel__controls {
+    display: none !important;
+  }
+  html, body, main, .section-projects {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    position: relative;
   }
 }
 /* --- Hamburger menu and fullscreen overlay --- */
@@ -82,47 +115,7 @@
     display: none !important;
   }
 }
-@media (max-width: 700px) {
-  .section-projects {
-    padding-top: 1rem;
-    margin-top: 0.5rem;
-    min-height: 85vh;
-  }
-  .title.title-red {
-    margin-bottom: 0.5rem !important;
-  }
-  .carousel {
-    margin-top: 3rem !important;
-  }
-  .carousel__body {
-    margin-top: 0.5rem !important;
-    padding-top: 0.5rem !important;
-  }
-  .carousel__slider {
-    margin-top: 0.5rem !important;
-  }
-  .section-projects .card {
-    max-width: 80vw;
-    min-width: 60vw;
-    width: 80vw;
-    height: auto;
-    max-height: 60vh;
-    padding: 0.5rem 0.3rem 0.5rem 0.3rem;
-    margin: 0 2vw;
-  }
-  .section-projects .card img {
-    max-width: 70vw;
-    max-height: 22vw;
-  }
-  .carousel__controls {
-    display: none !important;
-  }
-  html, body, main, .section-projects {
-    overflow-x: hidden !important;
-    max-width: 100vw !important;
-    position: relative;
-  }
-}
+
 /* --- Carousel navigation arrows custom style --- */
 .carousel__controls {
   display: flex;
@@ -204,9 +197,10 @@
   justify-content: center;
   align-items: center;
   gap: 12px;
-  margin-top: 12px;
+  margin-top: auto;
   width: 100%;
   flex-wrap: nowrap;
+  min-height: 40px;
 }
 
 .project-icon {
@@ -225,12 +219,21 @@
   margin: 0.5rem 0 0.3rem 0;
   font-size: 1.15rem;
   text-align: center;
+  min-height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .section-projects .card p {
   font-size: 0.92rem;
   text-align: center;
   margin-bottom: 0.5rem;
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 }
 /* --- END CLEAN CARD STYLES --- */
 
@@ -251,6 +254,13 @@
   justify-content: flex-start;
   min-height: 100vh;
   padding-top: 2.5rem;
+}
+
+/* Desktop spacing for projects section */
+@media (min-width: 701px) {
+  .section-projects {
+    padding-top: 4.5rem;
+  }
 }
 
 .carousel {
