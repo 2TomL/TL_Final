@@ -161,11 +161,11 @@ form {
   padding-bottom: 1rem;
 }
 .footer-logo {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
+  width: 72px;
+  height: 48px;
+  border-radius: 6px; /* small rounded corners instead of a circle */
   margin-bottom: 0.7rem;
-  box-shadow: 0 2px 12px #0008;
+  object-fit: contain;
 }
 .footer-socials {
   display: flex;
@@ -194,8 +194,8 @@ form {
     gap: 1.2rem;
   }
   .footer-logo {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 38px;
   }
   .footer-social-icon {
     width: 28px;
