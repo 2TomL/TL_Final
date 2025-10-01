@@ -234,9 +234,8 @@ if (!window.__snakeGameLoaded) {
 				this.dir = new helpers.Vec(0, 0);
 				this.type = type;
 				this.index = i;
-				this.delay = 5;
-	// SNAKE SPEED: hoe hoger, hoe trager. Standaard was 5, nu 10 voor trager spel.
-	this.delay = 30;
+	// SNAKE SPEED: hoe hoger, hoe trager. Standaard was 5, nu iets langzamer voor betere controle.
+	this.delay = 20;
 				this.size = W / cells;
 				this.color = 'white';
 				this.history = [];
@@ -312,7 +311,7 @@ if (!window.__snakeGameLoaded) {
 						this.history[i] = this.history[i + 1];
 					}
 					this.pos.add(this.dir);
-					this.delay = 5;
+					this.delay = 20;
 					this.total > 3 ? this.selfCollision() : null;
 				}
 			}
