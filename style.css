@@ -502,3 +502,8 @@ main {
   .desktop-instruction { display: none; }
   .mobile-instruction { display: inline; }
 }
+
+/* Reduced performance mode styles */
+.reduced-bg #bg-canvas { opacity: 0.6; filter: blur(1px) brightness(0.8); }
+/* optional: hide heavy particle overflow earlier */
+.reduced-bg .home-center-wrapper { transform: translateZ(0); }
