@@ -10027,19 +10027,8 @@ async function io() {
 	const p = t.finish();
 	_.queue.submit([p]);
 }
-// FPS cap to reduce GPU/CPU usage
-let __lastFrameTime = performance.now();
-let __targetFPS = 50; // cap to reduce GPU load
-let __minFrameDelay = 1000 / __targetFPS;
-let __accum = 0;
-function Dr(n){
-  if(!n) n = performance.now();
-  const delta = n - __lastFrameTime;
-  if(delta >= __minFrameDelay){
-	__lastFrameTime = n;
-	io(); // original frame logic
-  }
-  requestAnimationFrame(Dr);
+function Dr(n) {
+	io();
+	requestAnimationFrame(Dr);
 }
-// Start optimized loop
 requestAnimationFrame(Dr);

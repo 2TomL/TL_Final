@@ -16,6 +16,12 @@
 .about-title {
 	margin-top: 4.5rem;
 }
+@media (min-width: 701px) {
+  .about-title {
+    /* Increase space below the About title on desktop */
+    margin-bottom: 2.8rem;
+  }
+}
 /* About page layout */
 .about-content {
 	display: flex;

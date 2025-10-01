@@ -6,6 +6,7 @@
   <title>About | TL</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="public/css/about.css">
+  <link rel="stylesheet" href="public/css/mobile-nav.css">
   <script src="public/js/navbar.js"></script>
   <script src="public/js/soundcloud.js"></script>
   <script src="app.js" defer></script>
@@ -44,6 +45,36 @@
   <div class="page-arrows">
     <a href="index.html" class="arrow-btn arrow-up" title="Previous page"><img src="public/assets/assets/up-arrows.png" alt="Up arrow"></a>
     <a href="projects.html" class="arrow-btn arrow-down" title="Next page"><img src="public/assets/assets/dwn-arrows.png" alt="Down arrow"></a>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div class="phone">
+    <input type="radio" name="nav" id="s1" checked>
+    <input type="radio" name="nav" id="s2">
+    <input type="radio" name="nav" id="s3">
+    <input type="radio" name="nav" id="s4">
+    <input type="radio" name="nav" id="s5">
+    
+    <div class="phone_bottom">
+      <label for="s1" onclick="window.location.href='about.html'">
+        <img src="public/assets/assets/about.png" alt="About">
+      </label>
+      <label for="s2" onclick="window.location.href='projects.html'">
+        <img src="public/assets/assets/projects.png" alt="Projects">
+      </label>
+      <label for="s3" onclick="window.location.href='index.html'">
+        <img src="public/assets/assets/logo_TL.png" alt="Home">
+      </label>
+      <label for="s4" onclick="window.location.href='game.html'">
+        <img src="public/assets/assets/game.png" alt="Game">
+      </label>
+      <label for="s5" onclick="window.location.href='contact.html'">
+        <img src="public/assets/assets/phone-call.png" alt="Contact">
+      </label>
+      
+      <div class="circle"></div>
+      <div class="indicator"></div>
+    </div>
   </div>
 </body>
   <script src="public/js/pageScrollNav.js"></script>

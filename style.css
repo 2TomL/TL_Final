@@ -498,12 +498,113 @@ main {
 }
 .desktop-instruction { display: inline; }
 .mobile-instruction { display: none; }
+
+/* Desktop game instructions positioning */
+@media (min-width: 701px) {
+  .game-instructions {
+    position: absolute;
+    bottom: 15vh;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    z-index: 10;
+  }
+  
+  /* Desktop game section - fit to screen height */
+  .page-main {
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .section-game {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+}
+
 @media (max-width: 900px) {
   .desktop-instruction { display: none; }
   .mobile-instruction { display: inline; }
 }
 
-/* Reduced performance mode styles */
-.reduced-bg #bg-canvas { opacity: 0.6; filter: blur(1px) brightness(0.8); }
-/* optional: hide heavy particle overflow earlier */
-.reduced-bg .home-center-wrapper { transform: translateZ(0); }
+/* Mobile: hide navbar and mobile menu UI entirely */
+@media (max-width: 700px) {
+  /* Hide the whole navbar on mobile */
+  #navbar {
+    display: none !important;
+  }
+  /* Ensure the hamburger and overlay are also hidden if present */
+  .hamburger {
+    display: none !important;
+  }
+  .menu-overlay {
+    display: none !important;
+    pointer-events: none !important;
+  }
+  
+  /* Game page mobile adjustments - fit to screen */  
+  .page-main {
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .section-game {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .game-instructions {
+    position: absolute;
+    bottom: 15vh;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    z-index: 10;
+  }
+  
+  /* Mobile home page layout adjustments */
+  .home-center-wrapper {
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 100vh;
+    justify-content: space-between;
+    padding: 15vh 0 15vh 0;
+  }
+  
+  /* Move title to upper half */
+  .home-center-wrapper .section-heading {
+    margin-bottom: 0;
+    flex: 0 0 auto;
+  }
+  
+  /* Keep text in lower area - slightly adjusted */
+  .home-center-wrapper .page-text {
+    margin-bottom: 0;
+    flex: 0 0 auto;
+    margin-top: auto;
+    transform: translateY(1vh);
+  }
+}
