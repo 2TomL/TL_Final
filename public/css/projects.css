@@ -13,13 +13,19 @@
   color: #ff3333;
   font-size: 1.7rem;
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 4rem; /* increased from 2.5rem to add more space under the Projects title */
   text-shadow:
     0 0 8px #fff,
     0 0 2px #fff,
     0 1px 8px #fff,
     0 2px 12px #fff,
     0 0 0.5px #fff;
+}
+
+@media (max-width: 700px) {
+  .section-heading {
+    margin-bottom: 1.8rem; /* keep tighter spacing on mobile */
+  }
 }
 /* --- Hamburger menu and fullscreen overlay --- */
 .hamburger span {
