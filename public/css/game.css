@@ -212,7 +212,6 @@
   .game .container {
     flex-flow: column wrap;
   }
-}
 .game #author {
   width: 100%;
   bottom: 40px;

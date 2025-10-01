@@ -12,6 +12,11 @@
     align-items: flex-end;
     justify-content: center;
     z-index: 1000;
+    /* iOS Safari fixes */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 
   .phone_bottom {
@@ -46,8 +51,12 @@
     margin: auto;
     position: absolute;
     z-index: 3;
+    -webkit-transition: 200ms 100ms cubic-bezier(0.14, -0.08, 0.74, 1.4);
     transition: 200ms 100ms cubic-bezier(0.14, -0.08, 0.74, 1.4);
+    -webkit-filter: brightness(0.8);
     filter: brightness(0.8);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
 
   .circle {
@@ -61,13 +70,19 @@
     left: 0;
     right: 0;
     margin: auto;
+    -webkit-transition: 200ms cubic-bezier(0.14, -0.08, 0.74, 1.4);
     transition: 200ms cubic-bezier(0.14, -0.08, 0.74, 1.4);
     box-shadow: 0px 82px 20px 0px rgba(128, 128, 128, 0.29);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 
   .indicator {
     width: 70px;
     height: 70px;
+    background: -webkit-linear-gradient(0deg, rgba(255, 51, 51, 0.6), rgba(255, 85, 85, 0.4), rgba(255, 255, 255, 0.3));
     background: linear-gradient(0deg, rgba(255, 51, 51, 0.6), rgba(255, 85, 85, 0.4), rgba(255, 255, 255, 0.3));
     border-radius: 50%;
     position: absolute;
@@ -76,8 +91,11 @@
     right: 0;
     margin: auto;
     z-index: 0;
+    -webkit-transition: 200ms cubic-bezier(0.14, -0.08, 0.74, 1.4);
     transition: 200ms cubic-bezier(0.14, -0.08, 0.74, 1.4);
     box-shadow: 0 0 20px rgba(255, 51, 51, 0.5);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
 
   /* About - Position 1 (leftmost) */
@@ -87,6 +105,7 @@
   }
   #s1:checked ~ .phone_bottom .circle,
   #s1:checked ~ .phone_bottom .indicator {
+    -webkit-transform: translateX(-163px);
     transform: translateX(-163px);
   }
 
@@ -97,6 +116,7 @@
   }
   #s2:checked ~ .phone_bottom .circle,
   #s2:checked ~ .phone_bottom .indicator {
+    -webkit-transform: translateX(-82px);
     transform: translateX(-82px);
   }
 
@@ -107,6 +127,7 @@
   }
   #s3:checked ~ .phone_bottom .circle,
   #s3:checked ~ .phone_bottom .indicator {
+    -webkit-transform: translateX(-1px);
     transform: translateX(-1px);
   }
 
@@ -117,6 +138,7 @@
   }
   #s4:checked ~ .phone_bottom .circle,
   #s4:checked ~ .phone_bottom .indicator {
+    -webkit-transform: translateX(85px);
     transform: translateX(85px);
   }
 
@@ -127,16 +149,26 @@
   }
   #s5:checked ~ .phone_bottom .circle,
   #s5:checked ~ .phone_bottom .indicator {
+    -webkit-transform: translateX(165px);
     transform: translateX(165px);
   }
 
   /* Add bottom padding to main content to prevent overlap */
   body {
     padding-bottom: 80px;
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
   }
 
   .page-main {
     padding-bottom: 100px;
+    padding-bottom: calc(100px + env(safe-area-inset-bottom));
+  }
+  
+  /* iPhone 7 specific fixes */
+  @supports (-webkit-touch-callout: none) {
+    .phone {
+      bottom: env(safe-area-inset-bottom, 0);
+    }
   }
 }
 

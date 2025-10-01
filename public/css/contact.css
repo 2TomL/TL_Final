@@ -82,6 +82,26 @@
   height: 40px;
   margin-bottom: 0.4rem;
 }
+
+/* Email and location icons inner glow */
+.card img[src*="mail.png"],
+.card img[src*="atomium.png"] {
+  filter: 
+    drop-shadow(0 0 4px rgba(255, 51, 51, 0.5))
+    drop-shadow(0 0 8px rgba(255, 255, 255, 0.25))
+    drop-shadow(0 0 2px rgba(255, 51, 51, 0.6))
+    drop-shadow(0 0 12px rgba(255, 51, 51, 0.2));
+  transition: filter 0.3s ease;
+}
+
+.card:hover img[src*="mail.png"],
+.card:hover img[src*="atomium.png"] {
+  filter: 
+    drop-shadow(0 0 6px rgba(255, 51, 51, 0.7))
+    drop-shadow(0 0 12px rgba(255, 255, 255, 0.4))
+    drop-shadow(0 0 2px rgba(255, 51, 51, 0.8))
+    drop-shadow(0 0 18px rgba(255, 51, 51, 0.3));
+}
 .card h1 {
   font-size: 1rem;
   color: #fff;

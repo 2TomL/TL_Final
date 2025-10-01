@@ -14,6 +14,19 @@
     0 0 0.5px #fff;
 }
 
+/* iPhone 7 and similar device specific fixes */
+@media (max-width: 375px) and (-webkit-device-pixel-ratio: 2) {
+  .phone {
+    height: 60px !important;
+  }
+  .phone_bottom {
+    height: 60px !important;
+  }
+  .phone label {
+    height: 60px !important;
+  }
+}
+
 /* Mobile styles consolidated */
 @media (max-width: 700px) {
   .section-heading {
@@ -167,13 +180,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   transition: box-shadow 0.2s;
   max-width: 280px;
   min-width: 220px;
-  width: 260px;
+  width: 260px !important;
   min-height: 280px;
   max-height: 330px;
-  height: 310px;
+  height: 310px !important;
   margin: 0 10px;
   overflow: hidden;
   box-sizing: border-box;
@@ -220,9 +234,12 @@
   font-size: 1.15rem;
   text-align: center;
   min-height: 1.5rem;
+  max-height: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 1.5rem;
+  overflow: hidden;
 }
 
 .section-projects .card p {
@@ -230,10 +247,12 @@
   text-align: center;
   margin-bottom: 0.5rem;
   min-height: 2.5rem;
+  max-height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
+  flex: 0 0 2.5rem;
+  overflow: hidden;
 }
 /* --- END CLEAN CARD STYLES --- */
 
