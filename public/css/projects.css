@@ -4,7 +4,7 @@
   color: #ff3333;
   font-size: 1.7rem;
   text-align: center;
-  margin-bottom: 4rem; /* increased from 2.5rem to add more space under the Projects title */
+  margin-bottom: 4rem; 
   text-shadow:
     0 0 8px #fff,
     0 0 2px #fff,
@@ -29,7 +29,7 @@
 /* Mobile styles consolidated */
 @media (max-width: 700px) {
   .section-heading {
-    margin-bottom: 1.8rem; /* keep tighter spacing on mobile */
+    margin-bottom: 1.8rem; 
   }
   
   .section-projects {
