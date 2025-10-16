@@ -142,6 +142,14 @@ function applyFallbackBackground() {
 	document.body.style.backgroundAttachment = 'fixed';
 }
 
+// Remove fallback when WebGPU animation is ready
+function removeFallbackBackground() {
+	document.body.style.backgroundImage = 'none';
+}
+
+// Apply fallback immediately on page load
+applyFallbackBackground();
+
 let kr = async (n) => {
 		var t;
 		const e = await ((t = navigator.gpu) == null ? void 0 : t.requestAdapter());
@@ -164,6 +172,9 @@ let kr = async (n) => {
 			applyFallbackBackground();
 			return null;
 		}
+		
+		// WebGPU is available, remove fallback background
+		removeFallbackBackground();
 		
 		return G;
 	},
