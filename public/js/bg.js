@@ -128,17 +128,44 @@ Promise.create = function () {
 	);
 };
 var G = null;
+
+// Fallback function for devices without WebGPU support
+function applyFallbackBackground() {
+	const isMobile = window.innerWidth <= 768;
+	const fallbackImage = isMobile 
+		? 'public/assets/pictures/fallback_mobile.png'
+		: 'public/assets/pictures/fallback_desktop.png';
+	
+	document.body.style.backgroundImage = `url('${fallbackImage}')`;
+	document.body.style.backgroundSize = 'cover';
+	document.body.style.backgroundPosition = 'center';
+	document.body.style.backgroundAttachment = 'fixed';
+}
+
 let kr = async (n) => {
 		var t;
 		const e = await ((t = navigator.gpu) == null ? void 0 : t.requestAdapter());
-		return (
-			(G = await (e == null
-				? void 0
-				: e.requestDevice({
-						requiredFeatures: ["float32-filterable"]
-				  }))),
-			G || (console.log("error finding device"), null)
-		);
+		
+		if (!e) {
+			applyFallbackBackground();
+			return null;
+		}
+		
+		try {
+			G = await e.requestDevice({
+				requiredFeatures: ["float32-filterable"]
+			});
+		} catch (error) {
+			applyFallbackBackground();
+			return null;
+		}
+		
+		if (!G) {
+			applyFallbackBackground();
+			return null;
+		}
+		
+		return G;
 	},
 	rr = async (n) => {
 		try {
@@ -10027,8 +10054,19 @@ async function io() {
 	const p = t.finish();
 	_.queue.submit([p]);
 }
+
+let fps = 30;
+let frameInterval = 1000 / fps;
+let lastTime = 0;
+
 function Dr(n) {
-	io();
 	requestAnimationFrame(Dr);
+	const currentTime = n;
+	const elapsed = currentTime - lastTime;
+
+	if (elapsed > frameInterval) {
+		lastTime = currentTime - (elapsed % frameInterval);
+		io();
+	}
 }
 requestAnimationFrame(Dr);

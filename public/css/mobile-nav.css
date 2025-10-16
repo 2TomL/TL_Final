@@ -100,57 +100,57 @@
 
   /* About - Position 1 (leftmost) */
   #s1:checked ~ .phone_bottom [for="s1"] > img {
-    top: -85px;
+    top: -87px;
     z-index: 3;
   }
   #s1:checked ~ .phone_bottom .circle,
   #s1:checked ~ .phone_bottom .indicator {
-    -webkit-transform: translateX(-163px);
-    transform: translateX(-163px);
+    -webkit-transform: translateX(calc(-40vw));
+    transform: translateX(calc(-40vw));
   }
 
   /* Projects - Position 2 */
   #s2:checked ~ .phone_bottom [for="s2"] > img {
-    top: -85px;
+    top: -87px;
     z-index: 3;
   }
   #s2:checked ~ .phone_bottom .circle,
   #s2:checked ~ .phone_bottom .indicator {
-    -webkit-transform: translateX(-82px);
-    transform: translateX(-82px);
+    -webkit-transform: translateX(-20vw);
+    transform: translateX(-20vw);
   }
 
   /* Home - Position 3 (center) */
   #s3:checked ~ .phone_bottom [for="s3"] > img {
-    top: -85px;
+    top: -87px;
     z-index: 3;
   }
   #s3:checked ~ .phone_bottom .circle,
   #s3:checked ~ .phone_bottom .indicator {
-    -webkit-transform: translateX(-1px);
-    transform: translateX(0px);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
   }
 
   /* Game - Position 4 */
   #s4:checked ~ .phone_bottom [for="s4"] > img {
-    top: -85px;
+    top: -87px;
     z-index: 3;
   }
   #s4:checked ~ .phone_bottom .circle,
   #s4:checked ~ .phone_bottom .indicator {
-    -webkit-transform: translateX(85px);
-    transform: translateX(85px);
+    -webkit-transform: translateX(20vw);
+    transform: translateX(20vw);
   }
 
   /* Contact - Position 5 (rightmost) */
   #s5:checked ~ .phone_bottom [for="s5"] > img {
-    top: -85px;
+    top: -87px;
     z-index: 3;
   }
   #s5:checked ~ .phone_bottom .circle,
   #s5:checked ~ .phone_bottom .indicator {
-    -webkit-transform: translateX(165px);
-    transform: translateX(165px);
+    -webkit-transform: translateX(40vw);
+    transform: translateX(40vw);
   }
 
   /* Add bottom padding to main content to prevent overlap */

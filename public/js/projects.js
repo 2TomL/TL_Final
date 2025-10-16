@@ -47,6 +47,8 @@
       item.style.zIndex = '1';
     }
     update3D();
+    // Force a reflow to ensure the initial state is correct
+    void slider.offsetWidth;
   }
 
   function update3D() {
@@ -111,17 +113,16 @@
 
 
 
+  // Move isSwiping outside bindEvents to persist across function calls
+  let isSwiping = false;
+
   function prev() {
     currIndex = (currIndex - 1 + itemCount) % itemCount;
-    update3D();
-    updateGeometry();
     update3D();
   }
 
   function next() {
     currIndex = (currIndex + 1) % itemCount;
-    update3D();
-    updateGeometry();
     update3D();
   }
 
@@ -132,20 +133,54 @@
       updateGeometry();
       update3D();
     });
+    
     // Swipe support
-    let startX = null;
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
     slider.addEventListener('touchstart', function(e) {
-      startX = e.touches[0].clientX;
-    });
+      if (isSwiping) return; // Ignore new swipes during animation
+      touchStartX = e.changedTouches[0].screenX;
+    }, false);
+    
     slider.addEventListener('touchend', function(e) {
-      if (startX === null) return;
-      let endX = e.changedTouches[0].clientX;
-      if (endX - startX > 50) prev();
-      else if (startX - endX > 50) next();
-      startX = null;
-    });
+      if (isSwiping) return; // Ignore if already swiping
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, false);
+    
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchEndX - touchStartX;
+      
+      if (Math.abs(diff) > swipeThreshold) {
+        isSwiping = true;
+        if (diff > 0) {
+          // Swipe right - go to previous
+          prev();
+        } else {
+          // Swipe left - go to next
+          next();
+        }
+        // Reset after animation completes
+        setTimeout(() => {
+          isSwiping = false;
+        }, 950); // Slightly longer than transition duration
+      }
+    }
   }
 
-  setup3D();
-  bindEvents();
+  function initCarousel() {
+    setup3D();
+    bindEvents();
+  }
+
+  // Initial setup
+  initCarousel();
+
+  // Re-initialize on window load to correct for image loading
+  window.addEventListener('load', () => {
+    setTimeout(initCarousel, 100);
+  });
+
 })();

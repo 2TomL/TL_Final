@@ -203,6 +203,15 @@
   display: block;
   margin: 0 auto 0.6rem auto;
   box-shadow: 0 1px 8px rgba(0,0,0,0.13);
+  transition: box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.section-projects .card img:hover {
+  box-shadow: 0 0 10px rgba(255, 51, 51, 0.4), 
+              0 0 20px rgba(255, 51, 51, 0.3),
+              0 1px 4px rgba(0,0,0,0.1);
+  filter: brightness(1.05);
+  transform: scale(1.01);
 }
 
 .project-links {
@@ -226,6 +235,16 @@
   background: none !important;
   box-shadow: none !important;
   border: none !important;
+  transition: filter 0.3s ease, transform 0.3s ease;
+  filter: drop-shadow(0 0 0 transparent);
+}
+
+/* Ensure hover effects are not overridden */
+.project-icon:hover {
+  filter: drop-shadow(0 0 4px rgba(255, 51, 51, 0.6)) 
+          drop-shadow(0 0 8px rgba(255, 51, 51, 0.4))
+          brightness(1.1) !important;
+  transform: scale(1.05) !important;
 }
 
 .section-projects .card h3 {

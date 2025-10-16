@@ -5,7 +5,7 @@ function setupNavbar() {
     const navbar = document.getElementById('navbar');
     if (!navbar) return;
     navbar.innerHTML = `
-  <a href="index.html" title="Go to Home page"><img src="public/assets/assets/logo_TL.png" alt="Logo" class="logo" title="Go to Home page"></a>
+  <a href="index.html" title="Go to Home page"><img src="public/assets/pictures/logo_TL.png" alt="Logo" class="logo" title="Go to Home page"></a>
       <div class="soundcloud-player" id="soundcloud-player"></div>
       <nav class="nav-links">
   <a href="index.html" class="nav-link" title="Home page">Home</a>

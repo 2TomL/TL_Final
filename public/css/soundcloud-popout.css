@@ -71,3 +71,34 @@ body.soundcloud-popout {
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   margin-left: 0.5rem;
 }
+/* Volume slider dropdown style */
+#soundcloud-volume-dropdown {
+  position: absolute;
+  right: 0;
+  top: 32px;
+  background: #222;
+  border: 1px solid #444;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  padding: 0.5rem 0.7rem;
+  z-index: 1001;
+  display: none;
+  min-width: 90px;
+}
+#soundcloud-volume-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 0.7rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+#soundcloud-volume-btn img {
+  width: 22px;
+  height: 22px;
+  filter: brightness(1.2);
+}
+#soundcloud-volume-btn.active img {
+  filter: drop-shadow(0 0 8px #ff3333) brightness(2);
+}

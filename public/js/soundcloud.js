@@ -43,7 +43,8 @@ function setupSoundCloudPopout() {
                     const pubDate = item.querySelector('pubDate')?.textContent;
                     if(pubDate) {
                         const d = new Date(pubDate);
-                        label += d.toISOString().slice(0, 10);
+                        const year = d.getFullYear().toString().slice(-2); // Extract last two digits of the year
+                        label += `${year}-${d.toISOString().slice(5, 10)}`; // Format as YY-MM-DD
                     }
                     if(title) {
                         label += ' - ' + title.split(' ').slice(0,2).map(w => w[0]).join('').toUpperCase();
@@ -80,7 +81,7 @@ function setupSoundCloudPlayer() {
     popoutBtn.style.cursor = 'pointer';
     popoutBtn.style.marginLeft = '0.7rem';
     const popoutImg = document.createElement('img');
-    popoutImg.src = 'public/assets/assets/vinyl.png';
+    popoutImg.src = 'public/assets/pictures/vinyl.png';
     popoutImg.alt = 'Pop-out';
     popoutImg.style.width = '32px';
     popoutImg.style.height = '32px';
