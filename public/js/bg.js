@@ -161,11 +161,12 @@ let kr = async (n) => {
 		
 		try {
 			G = await e.requestDevice({
-				requiredFeatures: ["float32-filterable"]
-			});
-		} catch (error) {
-			applyFallbackBackground();
-			return null;
+			requiredFeatures: ["float32-filterable"],
+			requiredLimits: {
+				maxBufferSize: 2147483648
+			}
+		});
+	} catch (error) {
 		}
 		
 		if (!G) {
