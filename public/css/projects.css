@@ -28,27 +28,50 @@
 
 /* Mobile styles consolidated */
 @media (max-width: 700px) {
+    .carousel__slider {
+      display: flex;
+      flex-direction: column !important;
+      align-items: center;
+      width: 100% !important;
+    }
+    .carousel__slider__item {
+      width: 100% !important;
+      margin-bottom: 1.2rem;
+      display: flex;
+      justify-content: center;
+    }
+    .section-projects .card {
+      width: 95vw !important;
+      max-width: 420px;
+      min-width: 0;
+      margin: 0.5rem 0 !important;
+      max-height: none;
+    }
+    .section-projects .card img {
+      max-width: 90vw;
+      max-height: 40vw;
+    }
   .section-heading {
     margin-bottom: 1.8rem; 
   }
   
   .section-projects {
-    padding-top: 1rem;
-    margin-top: 0.5rem;
-    min-height: 85vh;
+    padding-top: 0.2rem;
+    margin-top: 0.1rem;
+    min-height: 70vh;
   }
   .title.title-red {
     margin-bottom: 0.5rem !important;
   }
   .carousel {
-    margin-top: 3rem !important;
+    margin-top: 3.5rem !important;
   }
   .carousel__body {
-    margin-top: 0.5rem !important;
-    padding-top: 0.5rem !important;
+    margin-top: 0.1rem !important;
+    padding-top: 0.1rem !important;
   }
   .carousel__slider {
-    margin-top: 0.5rem !important;
+    margin-top: 0.1rem !important;
   }
   .section-projects .card {
     max-width: 80vw;
@@ -134,8 +157,8 @@
   justify-content: center;
   align-items: center;
   gap: 2.5rem;
-  margin-top: 3.5rem;
-  margin-bottom: 3.5rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
   position: static !important;
   z-index: 1;
 }
@@ -175,28 +198,28 @@
   background: #18181c;
   border-radius: 1.1rem;
   box-shadow: 0 2px 12px rgba(0,0,0,0.09);
-  padding: 1.3rem 0.9rem 1.3rem 0.9rem;
+  padding: 1rem 0.7rem 1rem 0.7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   transition: box-shadow 0.2s;
-  max-width: 280px;
-  min-width: 220px;
-  width: 260px !important;
-  min-height: 280px;
-  max-height: 330px;
-  height: 310px !important;
-  margin: 0 10px;
+  max-width: 240px;
+  min-width: 180px;
+  width: 210px !important;
+  min-height: 220px;
+  max-height: 270px;
+  height: 240px !important;
+  margin: 0 2px;
   overflow: hidden;
   box-sizing: border-box;
 }
 
 .section-projects .card img {
   width: 100%;
-  max-width: 260px;
+  max-width: 200px;
   height: auto;
-  max-height: 180px;
+  max-height: 130px;
   border-radius: 0.6rem;
   object-fit: contain;
   background: #222;
@@ -248,28 +271,28 @@
 }
 
 .section-projects .card h3 {
-  margin: 0.5rem 0 0.3rem 0;
-  font-size: 1rem; /* Adjusted for better fit */
+  margin: 0.3rem 0 0.2rem 0;
+  font-size: 0.92rem;
   text-align: center;
+  min-height: 1.1rem;
+  max-height: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 1.1rem;
+  overflow: hidden;
+}
+
+.section-projects .card p {
+  font-size: 0.78rem;
+  text-align: center;
+  margin-bottom: 0.3rem;
   min-height: 1.5rem;
   max-height: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex: 0 0 1.5rem;
-  overflow: hidden;
-}
-
-.section-projects .card p {
-  font-size: 0.85rem; /* Further reduced size for description */
-  text-align: center;
-  margin-bottom: 0.5rem;
-  min-height: 2.5rem;
-  max-height: 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 2.5rem;
   overflow: hidden;
 }
 /* --- END CLEAN CARD STYLES --- */
