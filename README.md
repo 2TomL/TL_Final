@@ -68,6 +68,10 @@ Snake game + videogame database experiment. Built with Angular.
 A mobile-first web app for exclusive content access. Designed for street events and interactive experiences.  
 [Live site](https://2toml.github.io/2TomL-StreetBeats_V1/) | [GitHub](https://github.com/2TomL/2TomL-StreetBeats_V1)
 
+## Graphic Projects & Slideshow
+A project card showcases some of my graphic design work. Clicking the gallery icon opens a fullscreen, mobile-friendly slideshow with all visuals.
+
+
 ## Contact
 Use the contact form on the site or email lamerstom.123@gmail.com.
 
