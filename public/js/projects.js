@@ -1,4 +1,30 @@
 (function() {
+  // Expose globally for inline HTML onclick
+  window.openMixmasterVideo = function(e) {
+    e.preventDefault();
+    const videoUrl = 'public/assets/videos/Desktop 2025.08.26 - 20.32.04.03.mp4';
+    const videoModal = document.createElement('div');
+    videoModal.style.position = 'fixed';
+    videoModal.style.top = '0';
+    videoModal.style.left = '0';
+    videoModal.style.width = '100vw';
+    videoModal.style.height = '100vh';
+    videoModal.style.background = 'rgba(0,0,0,0.92)';
+    videoModal.style.zIndex = '9999';
+    videoModal.style.display = 'flex';
+    videoModal.style.alignItems = 'center';
+    videoModal.style.justifyContent = 'center';
+    videoModal.innerHTML = `
+      <video src="${videoUrl}" controls autoplay style="max-width:90vw; max-height:80vh; border-radius:12px; box-shadow:0 2px 32px #000; background:#111;" volume="0.3"></video>
+      <button style="position:absolute;top:2vw;right:2vw;font-size:2rem;background:none;border:none;color:#fff;cursor:pointer;z-index:10001;" onclick="this.parentElement.remove()">&times;</button>
+    `;
+    document.body.appendChild(videoModal);
+    // Set volume lower after autoplay
+    const vid = videoModal.querySelector('video');
+    if (vid) vid.volume = 0.3;
+  }
+})();
+(function() {
   "use strict";
 
   const carousel = document.querySelector('.carousel');
@@ -184,3 +210,93 @@
   });
 
 })();
+
+// --- Graphic Material Slideshow Popup ---
+const graphicSlides = [
+  'public/assets/events/72393593_2781331285225017_4255198681977847808_n.jpg',
+  'public/assets/events/472334539_910380054631391_2791230436867479031_n.jpg',
+  'public/assets/events/496948385_9733384780086985_2704374218500600342_n.jpg',
+  'public/assets/events/498223728_9752928164799313_1900043364006079112_n.jpg',
+  'public/assets/events/498557848_9733397090085754_5018291291344556034_n.jpg',
+  'public/assets/events/498639343_9733397280085735_924811236822040607_n.jpg',
+  'public/assets/events/514286939_24430114539920046_8224763668355133891_n.jpg',
+  'public/assets/events/514341560_24436146722650161_1556353330939209083_n.jpg',
+  'public/assets/events/514436863_24403243832607117_384529343356360637_n.jpg',
+  'public/assets/events/514439259_24405673389030828_842109083036563276_n.jpg',
+  'public/assets/events/514670273_24403242002607300_5762102013712317161_n.jpg',
+  'public/assets/events/515082657_24438066012458232_3410211601796381998_n.jpg',
+  'public/assets/events/515508907_24449800901284743_755654626629366881_n.jpg'
+];
+
+function openGraphicSlideshow(startIdx = 0) {
+  let current = startIdx;
+  const modal = document.createElement('div');
+  modal.className = 'graphic-slideshow-modal';
+  modal.innerHTML = `
+    <div class="graphic-slideshow-content">
+      <button class="graphic-slideshow-close" title="Sluiten">&times;</button>
+      <img class="graphic-slideshow-img" src="${graphicSlides[current]}" alt="Grafisch materiaal ${current+1}">
+      <div class="graphic-slideshow-controls">
+        <button class="graphic-slideshow-btn prev" title="Vorige foto">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="15" stroke="#c00" stroke-width="2" fill="none"/>
+            <polyline points="19,9 12,16 19,23" stroke="#c00" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <span style="color:#fff;font-size:1.1rem;">${current+1} / ${graphicSlides.length}</span>
+        <button class="graphic-slideshow-btn next" title="Volgende foto">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="15" stroke="#c00" stroke-width="2" fill="none"/>
+            <polyline points="13,9 20,16 13,23" stroke="#c00" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  const img = modal.querySelector('.graphic-slideshow-img');
+  const closeBtn = modal.querySelector('.graphic-slideshow-close');
+  const prevBtn = modal.querySelector('.graphic-slideshow-btn.prev');
+  const nextBtn = modal.querySelector('.graphic-slideshow-btn.next');
+  const counter = modal.querySelector('.graphic-slideshow-controls span');
+
+  function updateSlide(idx) {
+    img.src = graphicSlides[idx];
+    img.alt = `Grafisch materiaal ${idx+1}`;
+    counter.textContent = `${idx+1} / ${graphicSlides.length}`;
+  }
+  prevBtn.addEventListener('click', () => {
+    current = (current - 1 + graphicSlides.length) % graphicSlides.length;
+    updateSlide(current);
+  });
+  nextBtn.addEventListener('click', () => {
+    current = (current + 1) % graphicSlides.length;
+    updateSlide(current);
+  });
+  closeBtn.addEventListener('click', () => {
+    modal.remove();
+  });
+  modal.addEventListener('click', e => {
+    if (e.target === modal) modal.remove();
+  });
+  // Keyboard navigation
+  function keyHandler(e) {
+    if (!document.body.contains(modal)) return;
+    if (e.key === 'Escape') modal.remove();
+    if (e.key === 'ArrowLeft') prevBtn.click();
+    if (e.key === 'ArrowRight') nextBtn.click();
+  }
+  document.addEventListener('keydown', keyHandler);
+  modal.addEventListener('remove', () => {
+    document.removeEventListener('keydown', keyHandler);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.graphic-popup-trigger').forEach(el => {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      openGraphicSlideshow(0);
+    });
+  });
+});
