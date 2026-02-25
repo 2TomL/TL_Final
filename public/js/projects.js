@@ -213,6 +213,7 @@
 
 // --- Graphic Material Slideshow Popup ---
 const graphicSlides = [
+  'public/assets/events/doc vin.png',
   'public/assets/events/72393593_2781331285225017_4255198681977847808_n.jpg',
   'public/assets/events/472334539_910380054631391_2791230436867479031_n.jpg',
   'public/assets/events/496948385_9733384780086985_2704374218500600342_n.jpg',
