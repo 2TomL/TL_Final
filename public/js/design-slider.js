@@ -3,6 +3,39 @@
 
   const imageExtensionPattern = /\.(avif|bmp|gif|jpe?g|png|svg|webp)$/i;
   const folderCache = new Map();
+  const fallbackGalleryByEventFolder = {
+    BITEBACK: [
+      '25% zwarte tshirt - versie A1.png',
+      'Affiche A4 - 25% zwarte tshirt .png',
+      'graphic work 1.png',
+      'graphic work 3.png'
+    ],
+    BOUM: [
+      'BOUM Koffie 2.png',
+      'BOUM Koffie.png',
+      'flexi post 2 minder hoog.png',
+      'graphic work 2.png'
+    ],
+    SomSomSat: [
+      '472334539_910380054631391_2791230436867479031_n.jpg',
+      '496948385_9733384780086985_2704374218500600342_n.jpg',
+      '498223728_9752928164799313_1900043364006079112_n.jpg',
+      '498557848_9733397090085754_5018291291344556034_n.jpg',
+      '498639343_9733397280085735_924811236822040607_n.jpg'
+    ],
+    'TheGYM 1': [
+      '514436863_24403243832607117_384529343356360637_n.jpg',
+      '514439259_24405673389030828_842109083036563276_n.jpg',
+      '514670273_24403242002607300_5762102013712317161_n.jpg',
+      '515508907_24449800901284743_755654626629366881_n.jpg'
+    ],
+    'TheGym 2': [
+      '514286939_24430114539920046_8224763668355133891_n.jpg',
+      '514341560_24436146722650161_1556353330939209083_n.jpg',
+      '515082657_24438066012458232_3410211601796381998_n.jpg',
+      '72393593_2781331285225017_4255198681977847808_n.jpg'
+    ]
+  };
 
   const sliders = document.querySelectorAll('[data-design-slider]');
   if (!sliders.length) return;
@@ -22,6 +55,7 @@
     let modal = null;
     let currentGallery = [];
     let currentGalleryIndex = 0;
+    const imageLoadCache = new Map();
 
     function normalizeUrl(url) {
       return new URL(url, document.baseURI).href;
@@ -38,6 +72,62 @@
       const pathname = new URL(url, document.baseURI).pathname;
       const segments = pathname.split('/');
       return decodeURIComponent(segments[segments.length - 1] || '');
+    }
+
+    function eventFolderFromPath(folderPath) {
+      const normalized = (folderPath || '').replace(/\\/g, '/');
+      const marker = '/events/';
+      const markerIndex = normalized.toLowerCase().lastIndexOf(marker);
+      if (markerIndex === -1) return '';
+      return normalized.slice(markerIndex + marker.length).replace(/^\/+|\/+$/g, '');
+    }
+
+    function getFallbackFolderImages(folderPath) {
+      const eventFolder = eventFolderFromPath(folderPath);
+      const filenames = fallbackGalleryByEventFolder[eventFolder];
+      if (!filenames || !filenames.length) return [];
+
+      return filenames.map(filename =>
+        new URL(`public/assets/events/${eventFolder}/${filename}`, document.baseURI).href
+      );
+    }
+
+    function canLoadImage(url) {
+      const normalizedUrl = normalizeUrl(url);
+      if (imageLoadCache.has(normalizedUrl)) {
+        return imageLoadCache.get(normalizedUrl);
+      }
+
+      const loadPromise = new Promise(resolve => {
+        const probe = new Image();
+        probe.onload = () => resolve(true);
+        probe.onerror = () => resolve(false);
+        probe.src = normalizedUrl;
+      });
+
+      imageLoadCache.set(normalizedUrl, loadPromise);
+      return loadPromise;
+    }
+
+    async function filterLoadableImages(urls) {
+      const normalizedUnique = [];
+      const seen = new Set();
+
+      urls.forEach(url => {
+        const normalizedUrl = normalizeUrl(url);
+        if (seen.has(normalizedUrl)) return;
+        seen.add(normalizedUrl);
+        normalizedUnique.push(normalizedUrl);
+      });
+
+      const checks = await Promise.all(
+        normalizedUnique.map(async url => ({
+          url,
+          ok: await canLoadImage(url)
+        }))
+      );
+
+      return checks.filter(item => item.ok).map(item => item.url);
     }
 
     function parseDirectoryListing(html, folderPath) {
@@ -119,12 +209,15 @@
       const source = image.getAttribute('src') || '';
       const folderPath = sourceToFolderPath(source);
       const folderImages = await loadFolderImages(folderPath);
+      const fallbackImages = getFallbackFolderImages(folderPath);
+      const mergedImages = Array.from(new Set([...folderImages, ...fallbackImages]));
+      const loadableImages = await filterLoadableImages(mergedImages);
 
-      if (!folderImages.length) {
+      if (!loadableImages.length) {
         return [normalizeUrl(source)];
       }
 
-      return folderImages;
+      return loadableImages;
     }
 
     async function openSlideGallery(slide) {

@@ -256,7 +256,7 @@
 
       // Keep vertical page scroll, but block horizontal page panning while swiping carousel.
       if (Math.abs(touchDeltaX) > Math.abs(touchDeltaY) && Math.abs(touchDeltaX) > 10) {
-        e.preventDefault();
+        if (e.cancelable) e.preventDefault();
       }
     }, { passive: false });
     
@@ -311,13 +311,47 @@
 })();
 
 // --- Graphic Material Slideshow Popup ---
-const graphicSlides = [
-  'public/assets/events/BOUM/graphic work 2.png',
-  'public/assets/events/TheGYM 1/514436863_24403243832607117_384529343356360637_n.jpg',
-  'public/assets/events/TheGym 2/514341560_24436146722650161_1556353330939209083_n.jpg',
-  'public/assets/events/BITEBACK/graphic work 1.png',
-  'public/assets/events/SomSomSat/498557848_9733397090085754_5018291291344556034_n.jpg'
-];
+const graphicEventImages = {
+  BITEBACK: [
+    '25% zwarte tshirt - versie A1.png',
+    'Affiche A4 - 25% zwarte tshirt .png',
+    'graphic work 1.png',
+    'graphic work 3.png'
+  ],
+  BOUM: [
+    'BOUM Koffie 2.png',
+    'BOUM Koffie.png',
+    'flexi post 2 minder hoog.png',
+    'graphic work 2.png'
+  ],
+  SomSomSat: [
+    '472334539_910380054631391_2791230436867479031_n.jpg',
+    '496948385_9733384780086985_2704374218500600342_n.jpg',
+    '498223728_9752928164799313_1900043364006079112_n.jpg',
+    '498557848_9733397090085754_5018291291344556034_n.jpg',
+    '498639343_9733397280085735_924811236822040607_n.jpg'
+  ],
+  'TheGYM 1': [
+    '514436863_24403243832607117_384529343356360637_n.jpg',
+    '514439259_24405673389030828_842109083036563276_n.jpg',
+    '514670273_24403242002607300_5762102013712317161_n.jpg',
+    '515508907_24449800901284743_755654626629366881_n.jpg'
+  ],
+  'TheGym 2': [
+    '514286939_24430114539920046_8224763668355133891_n.jpg',
+    '514341560_24436146722650161_1556353330939209083_n.jpg',
+    '515082657_24438066012458232_3410211601796381998_n.jpg',
+    '72393593_2781331285225017_4255198681977847808_n.jpg'
+  ]
+};
+
+function buildEventImagePath(folder, file) {
+  return `public/assets/events/${encodeURIComponent(folder)}/${encodeURIComponent(file)}`;
+}
+
+const graphicSlides = Object.entries(graphicEventImages).flatMap(([folder, files]) =>
+  files.map(file => buildEventImagePath(folder, file))
+);
 
 function openGraphicSlideshow(startIdx = 0) {
   let current = startIdx;

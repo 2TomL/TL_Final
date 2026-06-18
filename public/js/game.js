@@ -58,9 +58,9 @@ if (!window.__snakeGameLoaded) {
 			setTimeout(() => {
 				const gameCanvas = document.querySelector('#canvas canvas');
 				if (gameCanvas && !gameCanvas.__listenersAdded) {
-					gameCanvas.addEventListener('touchstart', function(e) { handleTouchStart(e); e.preventDefault(); }, {passive: false});
-					gameCanvas.addEventListener('touchmove', function(e) { handleTouchMove(e); e.preventDefault(); }, {passive: false});
-					gameCanvas.addEventListener('touchend', function(e) { handleTouchEnd(e); e.preventDefault(); }, {passive: false});
+					gameCanvas.addEventListener('touchstart', function(e) { handleTouchStart(e); if (e.cancelable) e.preventDefault(); }, {passive: false});
+					gameCanvas.addEventListener('touchmove', function(e) { handleTouchMove(e); if (e.cancelable) e.preventDefault(); }, {passive: false});
+					gameCanvas.addEventListener('touchend', function(e) { handleTouchEnd(e); if (e.cancelable) e.preventDefault(); }, {passive: false});
 					gameCanvas.__listenersAdded = true;
 				}
 			}, 200);
