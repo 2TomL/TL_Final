@@ -1,0 +1,211 @@
+/* Mobile Bottom Navigation - Responsive for all mobile devices */
+@media (max-width: 700px) {
+  .phone {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 66px;
+    margin: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 1000;
+    /* iOS Safari fixes */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .phone_bottom {
+    width: 100%;
+    height: 66px;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .phone input {
+    display: none;
+  }
+
+  .phone label {
+    cursor: pointer;
+    display: flex;
+    width: 20%; /* 5 sections = 20% each */
+    height: 66px;
+    position: relative;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .phone label > img {
+    width: 25px;
+    height: 25px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    z-index: 3;
+    -webkit-transition: top 0.3s ease-out;
+    transition: top 0.3s ease-out;
+    -webkit-filter: brightness(0.8);
+    filter: brightness(0.8);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  .circle {
+    width: 60px;
+    height: 60px;
+    background: black;
+    position: absolute;
+    top: -38px;
+    z-index: 1;
+    border-radius: 50%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    -webkit-transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    box-shadow: 0px 82px 20px 0px rgba(128, 128, 128, 0.29);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .indicator {
+    width: 70px;
+    height: 70px;
+    background: -webkit-linear-gradient(0deg, rgba(255, 51, 51, 0.6), rgba(255, 85, 85, 0.4), rgba(255, 255, 255, 0.3));
+    background: linear-gradient(0deg, rgba(255, 51, 51, 0.6), rgba(255, 85, 85, 0.4), rgba(255, 255, 255, 0.3));
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: -43px;
+    right: 0;
+    margin: auto;
+    z-index: 0;
+    -webkit-transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    box-shadow: 0 0 20px rgba(255, 51, 51, 0.5);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  /* About - Position 1 (leftmost) */
+  #s1:checked ~ .phone_bottom [for="s1"] > img {
+    top: -87px;
+    z-index: 3;
+  }
+  #s1:checked ~ .phone_bottom .circle,
+  #s1:checked ~ .phone_bottom .indicator {
+    -webkit-transform: translateX(calc(-40vw));
+    transform: translateX(calc(-40vw));
+  }
+
+  /* Projects - Position 2 */
+  #s2:checked ~ .phone_bottom [for="s2"] > img {
+    top: -87px;
+    z-index: 3;
+  }
+  #s2:checked ~ .phone_bottom .circle,
+  #s2:checked ~ .phone_bottom .indicator {
+    -webkit-transform: translateX(-20vw);
+    transform: translateX(-20vw);
+  }
+
+  /* Home - Position 3 (center) */
+  #s3:checked ~ .phone_bottom [for="s3"] > img {
+    top: -87px;
+    z-index: 3;
+  }
+  #s3:checked ~ .phone_bottom .circle,
+  #s3:checked ~ .phone_bottom .indicator {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  /* Game - Position 4 */
+  #s4:checked ~ .phone_bottom [for="s4"] > img {
+    top: -87px;
+    z-index: 3;
+  }
+  #s4:checked ~ .phone_bottom .circle,
+  #s4:checked ~ .phone_bottom .indicator {
+    -webkit-transform: translateX(20vw);
+    transform: translateX(20vw);
+  }
+
+  /* Contact - Position 5 (rightmost) */
+  #s5:checked ~ .phone_bottom [for="s5"] > img {
+    top: -87px;
+    z-index: 3;
+  }
+  #s5:checked ~ .phone_bottom .circle,
+  #s5:checked ~ .phone_bottom .indicator {
+    -webkit-transform: translateX(40vw);
+    transform: translateX(40vw);
+  }
+
+  /* Add bottom padding to main content to prevent overlap */
+  body {
+    padding-bottom: 80px;
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
+  }
+
+  .page-main {
+    padding-bottom: 100px;
+    padding-bottom: calc(100px + env(safe-area-inset-bottom));
+  }
+  
+  /* iPhone 7 specific fixes */
+  @supports (-webkit-touch-callout: none) {
+    .phone {
+      bottom: env(safe-area-inset-bottom, 0);
+    }
+  }
+}
+
+/* Additional mobile device adjustments */
+@media (max-width: 480px) {
+  .phone label > img {
+    width: 22px;
+    height: 22px;
+  }
+  .circle {
+    width: 55px;
+    height: 55px;
+  }
+  .indicator {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+@media (max-width: 360px) {
+  .phone label > img {
+    width: 20px;
+    height: 20px;
+  }
+  .circle {
+    width: 50px;
+    height: 50px;
+  }
+  .indicator {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Hide on desktop */
+@media (min-width: 701px) {
+  .phone {
+    display: none !important;
+  }
+}

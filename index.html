@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Home | TL</title>
+  <link rel="icon" type="image/jpeg" href="public/assets/pictures/logo1.jpg">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="public/css/game.css">
+  <link rel="stylesheet" href="public/css/about.css">
+  <link rel="stylesheet" href="public/css/projects.css">
+  <link rel="stylesheet" href="public/css/contact.css">
+  <link rel="stylesheet" href="public/css/mobile-nav.css">
+  <script src="public/js/navbar.js"></script>
+  <script src="public/js/soundcloud.js"></script>
+  <script src="public/js/bg.js" type="module"></script>
+  <script src="public/js/projects.js" defer></script>
+  <script src="public/js/design-slider.js" defer></script>
+  <script src="public/js/game.js" defer></script>
+  <script src="script.js" defer></script>
+
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:title" content="Tom Lamers Portfolio" />
+  <meta property="og:description" content="Here is some of my work" />
+  <meta property="og:image" content="https://2toml.github.io/TL_Final/public/assets/pictures/web-pic.png" />
+  <meta property="og:url" content="https://2toml.github.io/TL_Final/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+<body class="bg-img">
+  <!-- Loader overlay -->
+  <div id="loader-overlay">
+    <div class="loader-spinner"></div>
+  </div>
+
+  <canvas id="bg-canvas" class="bg-canvas"></canvas>
+  <div id="navbar">
+    <a href="#home" title="Go to Home section"><img src="public/assets/pictures/logo_TL.png" alt="Logo" class="logo"></a>
+    <div class="soundcloud-player" id="soundcloud-player"></div>
+    <nav class="nav-links">
+      <a href="#home" class="nav-link" title="Home section">Home</a>
+      <a href="#about" class="nav-link" title="About section">About</a>
+      <a href="#projects" class="nav-link" title="Projects section">Projects</a>
+      <a href="#design" class="nav-link" title="Design section">Design</a>
+      <a href="#game" class="nav-link" title="Game section">Game</a>
+      <a href="#contact" class="nav-link" title="Contact section">Contact</a>
+    </nav>
+  </div>
+  <main id="home">
+    <div class="home-center-wrapper">
+      <h1 class="section-heading"><span class="title-baise">Tom </span> <span class="title-red">LAMERS</span></h1>
+      <p class="page-text">Welcome to my personal portfolio website.<br>
+      I am passionate about design and development.<br>
+      Explore my work and projects below!</p>
+    </div>
+  </main>
+  <div class="page-arrows">
+    <a href="#" class="arrow-btn arrow-up hide-arrow" title="Previous page"><img src="public/assets/pictures/up-arrows.png" alt="Up arrow"></a>
+    <a href="#about" class="arrow-btn arrow-down" title="Next section"><img src="public/assets/pictures/dwn-arrows.png" alt="Down arrow"></a>
+  </div>
+
+  <section id="about" class="page-main">
+    <h1 class="section-heading about-title">About</h1>
+    <div class="about-content">
+      <img class="about-photo" src="public/assets/pictures/about-other.png" alt="Tom Lamers photo">
+      <div class="about-text-icons">
+        <p class="page-text">
+          Hello! I’m Tom Lamers.<br>
+          I am a creative designer and developer with a love for building beautiful and functional websites and applications.<br>
+          I enjoy learning new technologies and working on exciting projects.
+        </p>
+        <div class="about-icons">
+          <img src="public/icons/icons/typescript.png" alt="TypeScript" title="TypeScript">
+          <img src="public/icons/icons/VSC.png" alt="Visual Studio Code" title="Visual Studio Code">
+          <img src="public/icons/icons/VW.png" alt="VW" title="VW">
+          <img src="public/icons/icons/Ai.png" alt="Adobe Illustrator" title="Adobe Illustrator">
+          <img src="public/icons/icons/CSS.png" alt="CSS" title="CSS">
+          <img src="public/icons/icons/html.png" alt="HTML" title="HTML">
+          <img src="public/icons/icons/IJ.png" alt="IntelliJ IDEA" title="IntelliJ IDEA">
+          <img src="public/icons/icons/java.png" alt="Java" title="Java">
+          <img src="public/icons/icons/jira.png" alt="Jira" title="Jira">
+          <img src="public/icons/icons/js.png" alt="JavaScript" title="JavaScript">
+          <img src="public/icons/icons/office.png" alt="Microsoft Office" title="Microsoft Office">
+          <img src="public/icons/icons/PS.png" alt="Adobe Photoshop" title="Adobe Photoshop">
+          <img src="public/icons/icons/PSM1.png" alt="PSM1" title="PSM1">
+          <img src="public/icons/icons/trello.png" alt="Trello" title="Trello">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-arrows">
+    <a href="#home" class="arrow-btn arrow-up" title="Previous section"><img src="public/assets/pictures/up-arrows.png" alt="Up arrow"></a>
+    <a href="#projects" class="arrow-btn arrow-down" title="Next section"><img src="public/assets/pictures/dwn-arrows.png" alt="Down arrow"></a>
+  </div>
+
+  <section id="projects" class="section-projects page-main">
+    <h1 class="section-heading projects-heading about-title">Projects</h1>
+    <div class="carousel">
+      <div class="carousel__body">
+        <div class="carousel__slider">
+          <div class="carousel__slider__item">
+            <div class="card">
+              <a href="https://2toml.github.io/Cook14U_Final/" target="_blank" rel="noopener">
+                <img src="public/assets/projects/Project_Cook14u.png" alt="Cook14u project" width="220" height="140" loading="lazy">
+              </a>
+              <h3>Cook14u</h3>
+              <p>Creative Gamer/Streamer platform.</p>
+              <div class="project-links">
+                <a class="project-link" href="https://2toml.github.io/Cook14U_Final/" target="_blank" rel="noopener" title="View website">
+                  <img src="public/assets/projects/web1.png" alt="Website" class="project-icon">
+                </a>
+                <a class="project-link" href="https://github.com/2TomL/Cook14U_Final" target="_blank" rel="noopener" title="View on GitHub">
+                  <img src="public/assets/projects/github.png" alt="GitHub" class="project-icon">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel__slider__item">
+            <div class="card card-graphic-projects">
+              <a href="#" class="graphic-popup-trigger" title="View graphic material">
+                <img src="public/assets/events/Copilot_20260225_123338.png" alt="Graphic material preview" width="220" height="140" loading="lazy">
+              </a>
+              <h3>Graphic Projects</h3>
+              <p>Various graphic designs and visuals.</p>
+              <div class="project-links">
+                <a class="project-link graphic-popup-trigger" href="#" title="View slideshow">
+                  <img src="public/assets/events/gallery.png" alt="View slideshow" class="project-icon">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel__slider__item">
+            <div class="card">
+              <a href="https://2toml.github.io/Psycho_Tiff/" target="_blank" rel="noopener">
+                <img src="public/assets/projects/Project_psy.png" alt="Psycho Tiff project" width="220" height="140" loading="lazy">
+              </a>
+              <h3>Tiffany Nauts</h3>
+              <p>Clinical Psychologist.</p>
+              <div class="project-links">
+                <a class="project-link" href="https://2toml.github.io/Psycho_Tiff/" target="_blank" rel="noopener" title="View website">
+                  <img src="public/assets/projects/web1.png" alt="Website" class="project-icon">
+                </a>
+                <a class="project-link" href="https://github.com/2TomL/Psycho_Tiff" target="_blank" rel="noopener" title="View on GitHub">
+                  <img src="public/assets/projects/github.png" alt="GitHub" class="project-icon">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel__slider__item">
+            <div class="card">
+              <a href="https://destrooperij.be/" target="_blank" rel="noopener">
+                <img src="public/assets/projects/Project_De_STrooperij.png" alt="De STrooperij event" width="220" height="140" loading="lazy">
+              </a>
+              <h3>De STrooperij</h3>
+              <p>De STrooperij event website.</p>
+              <div class="project-links">
+                <a class="project-link" href="https://destrooperij.be/" target="_blank" rel="noopener" title="View website">
+                  <img src="public/assets/projects/web1.png" alt="Website" class="project-icon">
+                </a>
+                <a class="project-link" href="https://github.com/2TomL/De_STrooperij_FINAL" target="_blank" rel="noopener" title="View on GitHub">
+                  <img src="public/assets/projects/github.png" alt="GitHub" class="project-icon">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel__slider__item">
+            <div class="card">
+              <a href="http://www.djkimmartini.com" target="_blank" rel="noopener" title="Online">
+                <img src="public/assets/projects/Project_KM.png" alt="Kim Martini project" width="220" height="140" loading="lazy">
+              </a>
+              <h3>Kim Martini Project</h3>
+              <p>Artist website.</p>
+              <div class="project-links">
+                <a class="project-link" href="http://www.djkimmartini.com" target="_blank" rel="noopener" title="View website">
+                  <img src="public/assets/projects/web1.png" alt="Website" class="project-icon">
+                </a>
+                <a class="project-link" href="https://github.com/2TomL/Kim_Martini" target="_blank" rel="noopener" title="View on GitHub">
+                  <img src="public/assets/projects/github.png" alt="GitHub" class="project-icon">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel__slider__item">
+            <div class="card">
+              <a href="https://2toml.github.io/2TomL-StreetBeats_V1/" target="_blank" rel="noopener">
+                <img src="public/assets/projects/KM_streetbeats.png" alt="Exclusive Mobile App for QR-scan" width="220" height="140" loading="lazy">
+              </a>
+              <h3>Exclusive Mobile App</h3>
+              <p>For QR-scan</p>
+              <div class="project-links">
+                <a class="project-link" href="https://2toml.github.io/2TomL-StreetBeats_V1/" target="_blank" rel="noopener" title="View website">
+                  <img src="public/assets/projects/web1.png" alt="Website" class="project-icon">
+                </a>
+                <a class="project-link" href="https://github.com/2TomL/2TomL-StreetBeats_V1" target="_blank" rel="noopener" title="View on GitHub">
+                  <img src="public/assets/projects/github.png" alt="GitHub" class="project-icon">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel__slider__item">
+            <div class="card card-mikey">
+              <a href="#" onclick="openMixmasterVideo(event)" title="Watch video">
+                <img src="public/assets/projects/Project_MMMt.png" alt="Mikey's Magic Mixing-tool" width="220" height="140" loading="lazy">
+              </a>
+              <h3>Mikey's Magic Mixer</h3>
+              <p>DJ set generator. Upload tracks, generate setlist, download list & mix.</p>
+              <div class="project-links">
+                <a class="project-link" href="#" onclick="openMixmasterVideo(event)" title="Watch video">
+                  <img src="public/assets/projects/play.png" alt="Watch video" class="project-icon">
+                </a>
+                <a class="project-link" href="https://github.com/2TomL/Mikey-s_Magic_Mixer-tool" target="_blank" rel="noopener" title="View on GitHub">
+                  <img src="public/assets/projects/github.png" alt="GitHub" class="project-icon">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel__slider__item">
+            <div class="card">
+              <a href="https://2toml.github.io/DJ_Swordz/" target="_blank" rel="noopener">
+                <img src="public/assets/projects/DJ_Swordz.png" alt="DJ Swordz project" width="220" height="140" loading="lazy">
+              </a>
+              <h3>DJ Swordz</h3>
+              <p>Artist website.</p>
+              <div class="project-links">
+                <a class="project-link" href="https://2toml.github.io/DJ_Swordz/" target="_blank" rel="noopener" title="View website">
+                  <img src="public/assets/projects/web1.png" alt="Website" class="project-icon">
+                </a>
+                <a class="project-link" href="https://github.com/2TomL/DJ_Swordz" target="_blank" rel="noopener" title="View on GitHub">
+                  <img src="public/assets/projects/github.png" alt="GitHub" class="project-icon">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel__slider__item">
+            <div class="card">
+              <a href="https://2toml.github.io/Recordshop_Showcase_frontend/" target="_blank" rel="noopener">
+                <img src="public/assets/projects/docvin.png" alt="Vinyl webshop project" width="220" height="140" loading="lazy">
+              </a>
+              <h3>Vinyl Webshop</h3>
+              <p>Online shop for the best vinyl in Brussels.</p>
+              <div class="project-links">
+                <a class="project-link" href="https://2toml.github.io/Recordshop_Showcase_frontend/" target="_blank" rel="noopener" title="View website">
+                  <img src="public/assets/projects/web1.png" alt="Website" class="project-icon">
+                </a>
+                <a class="project-link" href="https://github.com/2TomL/doctorvinyl-Final" target="_blank" rel="noopener" title="View on GitHub">
+                  <img src="public/assets/projects/github.png" alt="GitHub" class="project-icon">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel__slider__item">
+            <div class="card">
+              <a href="https://2toml.github.io/Sandwichbar/" target="_blank" rel="noopener">
+                <img src="public/assets/projects/BOUM.png" alt="Sandwichbar project" width="220" height="140" loading="lazy">
+              </a>
+              <h3>Sandwich Bar</h3>
+              <p>Sandwich bar website.</p>
+              <div class="project-links">
+                <a class="project-link" href="https://2toml.github.io/Sandwichbar/" target="_blank" rel="noopener" title="View website">
+                  <img src="public/assets/projects/web1.png" alt="Website" class="project-icon">
+                </a>
+                <a class="project-link" href="https://github.com/2TomL/Sandwichbar" target="_blank" rel="noopener" title="View on GitHub">
+                  <img src="public/assets/projects/github.png" alt="GitHub" class="project-icon">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel__slider__item">
+            <div class="card">
+              <a href="https://github.com/2TomL/ng-video-game-db" target="_blank" rel="noopener">
+                <img src="public/assets/projects/project4-GDB.png" alt="Game database project" width="220" height="140" loading="lazy">
+              </a>
+              <h3>Game Database</h3>
+              <p>Web search engine for all computer games.</p>
+              <div class="project-links">
+                <a class="project-link" href="#" title="Not online">
+                  <img src="public/assets/projects/noweb.png" alt="Website" class="project-icon">
+                </a>
+                <a class="project-link" href="https://github.com/2TomL/ng-video-game-db" target="_blank" rel="noopener" title="View on GitHub">
+                  <img src="public/assets/projects/github.png" alt="GitHub" class="project-icon">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel__slider__item">
+            <div class="card">
+              <a href="https://2toml.github.io/sample_mixer/" target="_blank" rel="noopener">
+                <img src="public/assets/projects/Project_Sample_Mixer.png" alt="Sample Mixer project" width="220" height="140" loading="lazy">
+              </a>
+              <h3>Sample Mixer</h3>
+              <p>Audio sample mixing tool for creative projects.</p>
+              <div class="project-links">
+                <a class="project-link" href="https://2toml.github.io/sample_mixer/" target="_blank" rel="noopener" title="View website">
+                  <img src="public/assets/projects/web1.png" alt="Website" class="project-icon">
+                </a>
+                <a class="project-link" href="https://github.com/2TomL/sample_mixer" target="_blank" rel="noopener" title="View on GitHub">
+                  <img src="public/assets/projects/github.png" alt="GitHub" class="project-icon">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel__slider__item">
+            <div class="card">
+              <a href="https://2toml.github.io/Game-Arkanoid/" target="_blank" rel="noopener">
+                <img src="public/assets/projects/Arkanoid.png" alt="Arkanoid game project" width="220" height="140" loading="lazy">
+              </a>
+              <h3>Arkanoid Game</h3>
+              <p>Classic breakout game built with TypeScript.</p>
+              <div class="project-links">
+                <a class="project-link" href="https://2toml.github.io/Game-Arkanoid/" target="_blank" rel="noopener" title="View website">
+                  <img src="public/assets/projects/web1.png" alt="Website" class="project-icon">
+                </a>
+                <a class="project-link" href="https://github.com/2TomL/Game-Arkanoid" target="_blank" rel="noopener" title="View on GitHub">
+                  <img src="public/assets/projects/github.png" alt="GitHub" class="project-icon">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel__slider__item">
+            <div class="card">
+              <a href="https://2toml.github.io/BOUM/" target="_blank" rel="noopener">
+                <img src="public/assets/projects/Boum2.png" alt="Boum sandwich bar" width="220" height="140" loading="lazy">
+              </a>
+              <h3>Boum</h3>
+              <p>Sandwich bar website.</p>
+              <div class="project-links">
+                <a class="project-link" href="https://2toml.github.io/BOUM/" target="_blank" rel="noopener" title="View website">
+                  <img src="public/assets/projects/web1.png" alt="Website" class="project-icon">
+                </a>
+                <a class="project-link" href="https://github.com/2TomL/BOUM" target="_blank" rel="noopener" title="View on GitHub">
+                  <img src="public/assets/projects/github.png" alt="GitHub" class="project-icon">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel__slider__item">
+            <div class="card">
+              <a href="https://2toml.github.io/Deeds_Logo/" target="_blank" rel="noopener">
+                <img src="public/assets/projects/3D landing page Deeds.png" alt="Deeds Logo project" width="220" height="140" loading="lazy">
+              </a>
+              <h3>Deeds Logo</h3>
+              <p>3D logo page with video integration.</p>
+              <div class="project-links">
+                <a class="project-link" href="https://2toml.github.io/Deeds_Logo/" target="_blank" rel="noopener" title="View website">
+                  <img src="public/assets/projects/web1.png" alt="Website" class="project-icon">
+                </a>
+                <a class="project-link" href="https://github.com/2TomL/Deeds_Logo" target="_blank" rel="noopener" title="View on GitHub">
+                  <img src="public/assets/projects/github.png" alt="GitHub" class="project-icon">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel__slider__item">
+            <div class="card">
+              <a href="https://2toml.github.io/CG_Logo/" target="_blank" rel="noopener">
+                <img src="public/assets/projects/3D landing page CG.png" alt="CG Logo project" width="220" height="140" loading="lazy">
+              </a>
+              <h3>CG Logo</h3>
+              <p>3D logo design.</p>
+              <div class="project-links">
+                <a class="project-link" href="https://2toml.github.io/CG_Logo/" target="_blank" rel="noopener" title="View website">
+                  <img src="public/assets/projects/web1.png" alt="Website" class="project-icon">
+                </a>
+                <a class="project-link" href="https://github.com/2TomL/CG_Logo" target="_blank" rel="noopener" title="View on GitHub">
+                  <img src="public/assets/projects/github.png" alt="GitHub" class="project-icon">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel__slider__item">
+            <div class="card">
+              <a href="https://2toml.github.io/Corvo_Logo/" target="_blank" rel="noopener">
+                <img src="public/assets/projects/Corvo Logo.png" alt="Corvo Logo project" width="220" height="140" loading="lazy">
+              </a>
+              <h3>Corvo Logo</h3>
+              <p>3D logo design.</p>
+              <div class="project-links">
+                <a class="project-link" href="https://2toml.github.io/Corvo_Logo/" target="_blank" rel="noopener" title="View website">
+                  <img src="public/assets/projects/web1.png" alt="Website" class="project-icon">
+                </a>
+                <a class="project-link" href="https://github.com/2TomL/Corvo_Logo" target="_blank" rel="noopener" title="View on GitHub">
+                  <img src="public/assets/projects/github.png" alt="GitHub" class="project-icon">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel__controls">
+        <button class="carousel__prev"><img src="public/assets/projects/left.png" alt="Previous" class="carousel-arrow"></button>
+        <button class="carousel__next"><img src="public/assets/projects/right.png" alt="Next" class="carousel-arrow"></button>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-arrows">
+    <a href="#about" class="arrow-btn arrow-up" title="Previous section"><img src="public/assets/pictures/up-arrows.png" alt="Up arrow"></a>
+    <a href="#design" class="arrow-btn arrow-down" title="Next section"><img src="public/assets/pictures/dwn-arrows.png" alt="Down arrow"></a>
+  </div>
+
+  <section id="design" class="page-main section-design">
+    <h1 class="section-heading about-title">Design</h1>
+    <div class="design-slider" data-design-slider>
+      <div class="design-slider__stack" aria-label="Graphic work stack slider">
+        <button type="button" class="design-slider__open" aria-label="Open active design image">
+          <span>Open</span>
+        </button>
+        <article class="design-slide is-active">
+          <img src="public/assets/events/BOUM/graphic work 2.png" alt="BOUM Baguette design">
+          <div class="design-slide__meta">
+            <h3>BOUM Baguette</h3>
+            <p>Visuals for social media.</p>
+          </div>
+        </article>
+        <article class="design-slide">
+          <img src="public/assets/events/TheGYM 1/514436863_24403243832607117_384529343356360637_n.jpg" alt="The GYM 1 design">
+          <div class="design-slide__meta">
+            <h3>The GYM 1</h3>
+            <p>Creation visuals for socials, posters and flyers.</p>
+          </div>
+        </article>
+        <article class="design-slide">
+          <img src="public/assets/events/TheGym 2/514341560_24436146722650161_1556353330939209083_n.jpg" alt="The Gym 2 design">
+          <div class="design-slide__meta">
+            <h3>The Gym 2</h3>
+            <p>Creation visuals for socials, posters and flyers.</p>
+          </div>
+        </article>
+        <article class="design-slide">
+          <img src="public/assets/events/BITEBACK/graphic work 1.png" alt="BITE BACK design">
+          <div class="design-slide__meta">
+            <h3>BITE BACK</h3>
+            <p>Graphic design for social media & posters.</p>
+          </div>
+        </article>
+        <article class="design-slide">
+          <img src="public/assets/events/SomSomSat/498557848_9733397090085754_5018291291344556034_n.jpg" alt="Something Something Saturday design">
+          <div class="design-slide__meta">
+            <h3>Something Something Saturday</h3>
+            <p>Creation visuals for socials, posters and flyers.</p>
+          </div>
+        </article>
+      </div>
+      <div class="design-slider__controls">
+        <button type="button" class="design-slider__btn design-slider__btn--prev" aria-label="Previous design image">
+          <img src="public/assets/projects/left.png" alt="">
+        </button>
+        <span class="design-slider__counter" aria-live="polite">1 / 5</span>
+        <button type="button" class="design-slider__btn design-slider__btn--next" aria-label="Next design image">
+          <img src="public/assets/projects/right.png" alt="">
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-arrows">
+    <a href="#projects" class="arrow-btn arrow-up" title="Previous section"><img src="public/assets/pictures/up-arrows.png" alt="Up arrow"></a>
+    <a href="#game" class="arrow-btn arrow-down" title="Next section"><img src="public/assets/pictures/dwn-arrows.png" alt="Down arrow"></a>
+  </div>
+
+  <section id="game" class="page-main section-game game">
+    <h1 class="section-heading about-title">Game</h1>
+    <div class="container noselect">
+      <div class="snake-score-ui" id="ui">
+        <h2>SCORE</h2>
+        <span id="score">00</span>
+      </div>
+      <div class="wrapper">
+        <div id="canvas"></div>
+      </div>
+      <button id="replay">
+        <i class="fas fa-play"></i>
+        RESTART
+      </button>
+    </div>
+    <div class="game-instructions">
+      <span class="mobile-instruction">Swipe to play</span>
+    </div>
+  </section>
+  <section id="contact" class="contact page-main">
+  <div class="container">
+    <h1 class="section-heading about-title">Contact</h1>
+
+    <div class="card-wrapper">
+
+      <div class="card">
+        <a href="mailto:lamerstom.123@gmail.com" class="contact-link">
+          <img src="public/icons/icons/mail.png" alt="Email">
+          <h1>Email</h1>
+          <h6>lamerstom.123@gmail.com</h6>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="https://maps.google.com/?q=Brussels,Belgium"
+           target="_blank"
+           rel="noopener"
+           class="contact-link">
+          <img src="public/icons/icons/atomium.png" alt="Location">
+          <h1>Location</h1>
+          <h6>Brussels, Belgium</h6>
+        </a>
+      </div>
+
+    </div>
+
+    <form action="https://formspree.io/f/xkndvpqr" method="POST">
+
+      <input type="hidden"
+             name="_subject"
+             value="Contact via portfolio Tom Lamers">
+
+      <div class="input-wrap">
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name *"
+          required>
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email *"
+          required>
+      </div>
+
+      <div class="input-wrap-2">
+        <input
+          type="text"
+          name="subject"
+          placeholder="Subject"
+          required>
+
+        <textarea
+          name="message"
+          cols="30"
+          rows="10"
+          placeholder="Your Message..."
+          required></textarea>
+      </div>
+
+      <div class="btn-wrapper">
+        <button type="submit" class="btn btn-primary">
+          Send Message
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</section>
+
+<div class="page-arrows">
+  <a href="#game" class="arrow-btn arrow-up">
+    <img src="public/assets/pictures/up-arrows.png" alt="Up arrow">
+  </a>
+  <a href="#" class="arrow-btn arrow-down hide-arrow">
+    <img src="public/assets/pictures/dwn-arrows.png" alt="Down arrow">
+  </a>
+</div>
+
+<footer class="footer">
+  <a href="#home">
+    <img
+      class="footer-logo"
+      src="public/assets/pictures/logo_TL.png"
+      alt="Footer Logo">
+  </a>
+
+  <div class="footer-socials">
+
+    <a href="https://github.com/2TomL"
+       target="_blank"
+       rel="noopener">
+      <img
+        class="footer-social-icon"
+        src="public/icons/icons/github2.png"
+        alt="GitHub">
+    </a>
+
+    <a href="https://www.linkedin.com/in/tom-lamers-8024957/"
+       target="_blank"
+       rel="noopener">
+      <img
+        class="footer-social-icon"
+        src="public/icons/icons/linkedin.png"
+        alt="LinkedIn">
+    </a>
+
+    <a href="https://ra.co/dj/mikeymike"
+       target="_blank"
+       rel="noopener">
+      <img
+        class="footer-social-icon"
+        src="public/icons/icons/ra-Mike.png"
+        alt="RA">
+    </a>
+
+  </div>
+
+  <div class="copyright">
+    Made by Tom Lamers © 2025
+  </div>
+</footer>
+
+  <!-- Mobile Navigation -->
+  <div class="phone">
+    <input type="radio" name="nav" id="s1">
+    <input type="radio" name="nav" id="s2">
+    <input type="radio" name="nav" id="s3" checked>
+    <input type="radio" name="nav" id="s4">
+    <input type="radio" name="nav" id="s5">
+    
+    <div class="phone_bottom">
+      <label for="s1" onclick="window.location.href='#about'">
+        <img src="public/assets/pictures/about.png" alt="About">
+      </label>
+      <label for="s2" onclick="window.location.href='#projects'">
+        <img src="public/assets/pictures/projects.png" alt="Projects">
+      </label>
+      <label for="s3" onclick="window.location.href='#home'">
+        <img src="public/assets/pictures/logo_TL.png" alt="Home">
+      </label>
+      <label for="s4" onclick="window.location.href='#game'">
+        <img src="public/assets/pictures/game.png" alt="Game">
+      </label>
+      <label for="s5" onclick="window.location.href='contact.html'">
+        <img src="public/assets/pictures/phone-call.png" alt="Contact">
+      </label>
+      
+      <div class="circle"></div>
+      <div class="indicator"></div>
+    </div>
+  </div>
+  <script src="public/js/loader.js"></script>
+  <script src="public/js/pageScrollNav.js"></script>
+</body>
+</html>

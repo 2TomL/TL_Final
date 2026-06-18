@@ -1,0 +1,641 @@
+/* iOS Safari compatibility fixes */
+* {
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.navbar-mymusic-text {
+	font-size: 0.92rem;
+	letter-spacing: 0.01em;
+	opacity: 0.8;
+}
+/* Hide popout icon and text on mobile */
+.navbar-mymusic {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+@media (max-width: 700px) {
+	.navbar-mymusic {
+		display: none !important;
+	}
+}
+/* Home page background canvas (was inline style) */
+.bg-canvas {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: -1;
+	display: block;
+}
+/* Projects page heading spacing */
+.projects-heading {
+	margin-top: 3.5rem;
+}
+
+/* Project video button (removes inline styles) */
+.project-video-btn {
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+}
+@media (max-width: 900px) {
+	.hamburger {
+		top: 0.6rem !important;
+	}
+}
+.title-baise {
+	font-family: 'Baise', Arial, Helvetica, sans-serif;
+}
+/* Hamburger icon styling */
+.hamburger {
+	color: #fff;
+	position: absolute;
+	right: 1.2rem;
+	top: 0.4rem;
+	width: 36px;
+	height: 36px;
+	z-index: 1002;
+	cursor: pointer;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	display: none;
+}
+.hamburger span {
+	display: block;
+	width: 28px;
+	height: 4px;
+	margin: 4px 0;
+	background: #fff;
+	border-radius: 2px;
+	transition: 0.3s;
+}
+.hamburger:hover span {
+	background: #ff3333;
+}
+.menu-close {
+	position: absolute;
+	top: 1.2rem;
+	right: 1.2rem;
+	width: 36px;
+	height: 36px;
+	background: none;
+	border: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	z-index: 1003;
+	padding: 0;
+}
+.close-line {
+	position: absolute;
+	width: 28px;
+	height: 4px;
+	background: #fff;
+	border-radius: 2px;
+	transition: 0.3s;
+}
+.close-line1 {
+	transform: rotate(45deg);
+}
+.close-line2 {
+	transform: rotate(-45deg);
+}
+.menu-close:hover .close-line {
+	background: #ff3333;
+}
+.menu-overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(20,20,20,0.97);
+	z-index: 2000;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transition: opacity 0.3s;
+}
+.menu-overlay.open {
+	display: flex;
+}
+.menu-overlay .menu-links {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2.2rem;
+	height: 100vh;
+	width: 100vw;
+}
+
+.menu-overlay .menu-link {
+	color: #fff;
+	text-decoration: none;
+	font-size: 2rem;
+	font-family: 'Baise', Arial, Helvetica, sans-serif;
+	transition: color 0.2s, text-shadow 0.2s;
+}
+.menu-overlay .menu-link:hover {
+	color: #ff3333;
+	text-shadow: 0 0 8px #ff3333, 0 0 16px #ff3333;
+}
+/* Hide hamburger icon on desktop */
+@media (max-width: 900px) {
+		#navbar {
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: center;
+			position: relative;
+		}
+		#navbar .logo {
+			margin-right: 0.7rem;
+			margin-bottom: 0;
+			order: 1;
+		}
+		#navbar .soundcloud-player {
+			margin-left: 0;
+			margin-right: 0.7rem;
+			width: auto;
+			order: 2;
+			display: flex;
+			align-items: center;
+		}
+		.hamburger {
+			order: 3;
+		}
+		#navbar .nav-links {
+			display: flex !important;
+			flex-wrap: wrap;
+			gap: 0.8rem;
+			margin-left: auto;
+		}
+}
+/* Hamburger icon styling */
+.hamburger {
+	color: #fff;
+	position: absolute;
+	right: 1.2rem;
+	top: 1.2rem;
+	width: 36px;
+	height: 36px;
+	z-index: 1002;
+	cursor: pointer;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.hamburger span {
+	display: block;
+	width: 28px;
+	height: 4px;
+	margin: 4px 0;
+	background: #fff;
+	border-radius: 2px;
+	transition: 0.3s;
+}
+@media (max-width: 900px) {
+	.hamburger {
+    display: flex;
+	}
+	#navbar .nav-links {
+		display: none !important;
+	}
+}
+/* Ensure non-home pages have normal flow */
+.page-main {
+	display: block !important;
+	margin: 0;
+	padding: 0 1.5rem 0 1.5rem;
+	min-height: 100vh;
+	height: auto;
+	box-sizing: border-box;
+}
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+		overflow-y: auto;
+		min-height: 100vh;
+}
+/* Center wrapper for home page title and text */
+.home-center-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 700px;
+	margin-top: auto;
+	margin-bottom: 5rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+@font-face {
+	font-family: 'Baise';
+	src: url('public/font/baise/Baise.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	background: #111;
+}
+
+/* Black scrollbar for the whole window */
+body::-webkit-scrollbar {
+	width: 12px;
+	background: #111;
+}
+body::-webkit-scrollbar-thumb {
+	background: #222;
+	border-radius: 6px;
+}
+body::-webkit-scrollbar-track {
+	background: #111;
+}
+/* Removed scrollbar-color and scrollbar-width for better browser compatibility */
+
+body.bg-img {
+	background: url('public/assets/pictures/bg_normal2.png') no-repeat center center fixed;
+	background-size: cover;
+}
+
+#navbar {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	background: rgba(0,0,0,0.85);
+	padding: 0.5rem 1.5rem;
+	box-sizing: border-box;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
+
+#navbar .logo {
+	height: 48px;
+	margin-right: 1rem;
+}
+
+#navbar .soundcloud-player {
+	margin-left: 1.5rem;
+	margin-right: 0;
+	display: flex;
+	align-items: center;
+}
+
+#navbar .nav-links {
+	display: flex;
+	gap: 1.5rem;
+	margin-left: auto;
+}
+
+#navbar .nav-link {
+	color: #fff;
+	text-decoration: none;
+	font-size: 1.1rem;
+	font-family: 'Baise', Arial, Helvetica, sans-serif;
+	transition: color 0.2s;
+}
+
+#navbar .nav-link:hover {
+	color: #ff3333;
+}
+
+
+.title {
+	font-family: 'Baise', Arial, Helvetica, sans-serif;
+	font-size: 2.5rem;
+	margin-top: 1.2rem;
+	margin-bottom: 1.5rem;
+	text-align: center;
+	letter-spacing: 1px;
+}
+
+.title-white {
+	color: #fff;
+}
+.title-red {
+	color: #ff3333;
+	font-family: 'Baise', Arial, Helvetica, sans-serif;
+	text-shadow:
+		0 0 8px #fff,
+		0 0 2px #fff,
+		0 1px 8px #fff,
+		0 2px 12px #fff,
+		0 0 0.5px #fff;
+}
+
+.page-text {
+	color: #fff;
+	font-size: 1.2rem;
+	line-height: 1.6;
+	max-width: 700px;
+	margin-bottom: 2rem;
+	text-align: center;
+}
+
+main {
+	padding: 0 1.5rem 0.2rem 1.5rem;
+	height: 100vh;
+	min-height: 0;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+@media (max-width: 900px) {
+	#navbar .nav-links {
+		gap: 1rem;
+	}
+	.title {
+		font-size: 2rem;
+	}
+}
+
+@media (max-width: 600px) {
+	#navbar {
+		flex-direction: row;
+		align-items: center;
+		padding: 0.5rem 0.5rem;
+	}
+	#navbar .logo {
+		height: 36px;
+		margin-bottom: 0;
+		margin-right: 0.7rem;
+	}
+	#navbar .soundcloud-player {
+		margin: 0 0.7rem 0 0;
+		width: auto;
+		justify-content: flex-start;
+	}
+	#navbar .nav-links {
+		flex-direction: column;
+		width: 100%;
+		gap: 0.5rem;
+		margin-left: 0;
+	}
+	.title {
+		font-size: 1.4rem;
+		margin-top: 2.5rem;
+	}
+	main {
+		padding: 1rem 0.5rem;
+	}
+	html, body, main {
+		overflow-y: auto !important;
+		max-height: 100vh;
+	}
+}
+
+/* Loader overlay styles */
+#loader-overlay {
+  position: fixed;
+  z-index: 3000;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(20,20,20,0.97);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s cubic-bezier(.4,2,.6,1);
+}
+#loader-overlay.loader-hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s cubic-bezier(.4,2,.6,1);
+}
+.loader-spinner {
+  width: 64px;
+  height: 64px;
+  border: 6px solid #fff;
+  border-top: 6px solid #ff3333;
+  border-radius: 50%;
+  -webkit-animation: spin 1.1s linear infinite;
+  animation: spin 1.1s linear infinite;
+  box-shadow: 0 0 24px #ff3333, 0 0 8px #fff;
+  will-change: transform;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Page navigation arrows (desktop only, bottom right) */
+.page-arrows {
+  display: none !important;
+  position: fixed;
+  right: 2.2rem;
+  bottom: 2.2rem;
+  top: auto;
+  transform: none;
+  flex-direction: column;
+  gap: 1.2rem;
+  z-index: 1200;
+}
+.arrow-btn {
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+  outline: none;
+}
+/* Subtle animated glow for navigation arrows */
+
+.arrow-btn img {
+	width: 32px;
+	height: 32px;
+	display: block;
+	transition: transform 0.12s cubic-bezier(.4,2,.6,1), box-shadow 0.12s;
+}
+
+.arrow-btn:hover img,
+.arrow-btn:focus img {
+	transform: scale(0.92) translateY(2px);
+	filter: drop-shadow(0 4px 10px #0005) drop-shadow(0 1px 0 #fff2);
+}
+
+.arrow-btn:active img {
+	transform: scale(0.88) translateY(3px);
+	filter: drop-shadow(0 2px 4px #0007) drop-shadow(0 1px 0 #fff2);
+}
+@media (max-width: 900px) {
+  .page-arrows {
+    display: none !important;
+  }
+}
+
+/* Hide navigation arrow if .hide-arrow is set */
+.hide-arrow {
+  display: none !important;
+}
+
+/* Hide hamburger when menu is open */
+.menu-overlay.open ~ .hamburger,
+.menu-overlay.open + .hamburger {
+  display: none !important;
+}
+
+/* Game instructions (responsive, smaller, modern font) */
+.game-instructions {
+  text-align: center;
+  margin: 1.2rem 0 0.7rem 0;
+  font-size: 0.93rem;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.01em;
+  opacity: 0.92;
+}
+.mobile-instruction { display: none; }
+
+/* Desktop game instructions positioning */
+@media (min-width: 701px) {
+  .game-instructions {
+		position: static;
+		bottom: auto;
+		left: auto;
+		transform: none;
+		margin: 0.9rem 0 0 0;
+    z-index: 10;
+  }
+  
+  /* Desktop game section - fit to screen height */
+  #game.page-main {
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .section-game {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 900px) {
+  .mobile-instruction { display: inline; }
+}
+
+/* Mobile: hide navbar and mobile menu UI entirely */
+@media (max-width: 700px) {
+	html,
+	body {
+		overflow-x: hidden;
+		overscroll-behavior-x: none;
+		width: 100%;
+	}
+
+  /* Hide the top navbar on mobile to show only the bottom nav */
+  #navbar {
+    display: none !important;
+  }
+  .hamburger {
+    display: none !important;
+  }
+  .menu-overlay {
+    display: none !important;
+    pointer-events: none !important;
+  }
+  
+  /* Game page mobile adjustments - fit to screen */  
+  #game.page-main {
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .section-game {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .game-instructions {
+		position: static;
+		bottom: auto;
+		left: auto;
+		transform: none;
+		margin: 0.9rem 0 0 0;
+    z-index: 10;
+  }
+  
+  /* Mobile home page layout adjustments */
+  .home-center-wrapper {
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 100vh;
+    justify-content: space-between;
+    padding: 15vh 0 15vh 0;
+  }
+  
+  /* Move title to upper half */
+  .home-center-wrapper .section-heading {
+    margin-bottom: 0;
+    flex: 0 0 auto;
+  }
+  
+  /* Keep text in lower area - slightly adjusted */
+  .home-center-wrapper .page-text {
+    margin-bottom: 0;
+    flex: 0 0 auto;
+    margin-top: auto;
+    transform: translateY(1vh);
+  }
+}
