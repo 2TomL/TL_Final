@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="public/css/mobile-nav.css">
   <script src="public/js/navbar.js"></script>
   <script src="public/js/soundcloud.js"></script>
-  <script src="public/js/bg.js" type="module"></script>
+  <!-- WebGPU-aware background loader with fallback -->
+  <script src="public/js/bg-wrapper.js" type="module"></script>
   <script src="public/js/projects.js" defer></script>
   <script src="public/js/design-slider.js" defer></script>
   <script src="public/js/game.js" defer></script>
@@ -475,6 +476,7 @@
       </button>
     </div>
     <div class="game-instructions">
+      <span class="desktop-instruction">Use arrows to play!</span>
       <span class="mobile-instruction">Swipe to play</span>
     </div>
   </section>

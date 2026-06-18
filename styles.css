@@ -40,6 +40,27 @@ body {
 	z-index: -1;
 	display: block;
 }
+
+/* Hide canvas if WebGPU not supported */
+html[data-no-webgpu] .bg-canvas {
+	display: none !important;
+}
+
+/* Explicit fallback backgrounds when 3D canvas is unavailable */
+html[data-no-webgpu] body.bg-img {
+	background-image: url('public/assets/pictures/fallback_desktop.png');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+	html[data-no-webgpu] body.bg-img {
+		background-image: url('public/assets/pictures/fallback_mobile.png');
+		background-attachment: scroll;
+	}
+}
 /* Projects page heading spacing */
 .projects-heading {
 	margin-top: 3.5rem;
@@ -523,6 +544,7 @@ main {
   letter-spacing: 0.01em;
   opacity: 0.92;
 }
+.desktop-instruction { display: inline; }
 .mobile-instruction { display: none; }
 
 /* Desktop game instructions positioning */
@@ -560,6 +582,7 @@ main {
 }
 
 @media (max-width: 900px) {
+	.desktop-instruction { display: none; }
   .mobile-instruction { display: inline; }
 }
 
@@ -622,7 +645,7 @@ main {
     margin-bottom: 0;
     height: 100vh;
     justify-content: space-between;
-    padding: 15vh 0 15vh 0;
+    padding: 15vh 0 8vh 0;
   }
   
   /* Move title to upper half */
