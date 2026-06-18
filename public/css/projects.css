@@ -670,7 +670,8 @@
     margin-top: 8rem !important;
   }
   .carousel__slider {
-    width: fit-content !important;
+    width: 100% !important;
+    max-width: 100% !important;
     margin: 0 auto !important;
     left: 0 !important;
     transform: none !important;
@@ -734,5 +735,76 @@
 
   #projects.page-main .carousel__slider {
     margin-top: 1rem !important;
+  }
+}
+
+/* Final mobile card sizing fix for real devices (iPhone Safari) */
+@media (max-width: 700px) {
+  #projects.page-main .card {
+    width: min(50vw, 184px) !important;
+    max-width: min(50vw, 184px) !important;
+    min-width: 146px !important;
+    min-height: 168px !important;
+    max-height: 208px !important;
+    height: auto !important;
+    padding: 0.38rem 0.14rem !important;
+  }
+
+  #projects.page-main .card img {
+    width: calc(100% - 4px) !important;
+    max-width: calc(100% - 4px) !important;
+    max-height: 102px !important;
+    margin-bottom: 0.26rem !important;
+  }
+
+  #projects.page-main .card h3 {
+    font-size: 0.76rem !important;
+    min-height: 0.92rem !important;
+    max-height: 0.92rem !important;
+  }
+
+  #projects.page-main .card p {
+    font-size: 0.6rem !important;
+    min-height: 1.05rem !important;
+    max-height: 1.05rem !important;
+  }
+
+  #projects.page-main .project-icon {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  #projects.page-main .project-links {
+    gap: 6px;
+  }
+
+  #projects.page-main .carousel__slider {
+    max-width: 100vw !important;
+    padding: 0 0.3rem !important;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 400px) {
+  #projects.page-main .card {
+    width: min(49vw, 172px) !important;
+    max-width: min(49vw, 172px) !important;
+    min-width: 136px !important;
+    min-height: 158px !important;
+    max-height: 198px !important;
+  }
+
+  #projects.page-main .card img {
+    width: calc(100% - 4px) !important;
+    max-width: calc(100% - 4px) !important;
+    max-height: 92px !important;
+  }
+
+  #projects.page-main .card h3 {
+    font-size: 0.72rem !important;
+  }
+
+  #projects.page-main .card p {
+    font-size: 0.56rem !important;
   }
 }

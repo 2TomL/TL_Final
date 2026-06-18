@@ -236,7 +236,35 @@ form {
 @media (max-width: 700px) {
   #contact.page-main {
     min-height: auto;
-    padding-bottom: 1.4rem !important;
+    /* Keep enough room for fixed mobile bottom nav */
+    padding-bottom: calc(120px + env(safe-area-inset-bottom)) !important;
+  }
+  .contact .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.8rem 0.8rem 0;
+    box-sizing: border-box;
+  }
+  .contact .card-wrapper {
+    width: 100%;
+    gap: 0.85rem;
+  }
+  .contact .card {
+    width: min(92vw, 320px);
+    max-width: min(92vw, 320px);
+    min-width: 0;
+    height: auto;
+    min-height: 108px;
+    max-height: none;
+    box-sizing: border-box;
+  }
+  .contact .input-wrap {
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  .contact .input-wrap input {
+    width: 100%;
+    flex: 1 1 auto;
   }
   form {
     margin-bottom: 0.7rem;

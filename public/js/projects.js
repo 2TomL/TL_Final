@@ -49,8 +49,52 @@
   let interval, intervalTime = 4000;
   const itemCount = items.length;
   let theta, radius;
+  let eventsBound = false;
+
+  function isIOSDevice() {
+    return /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  }
+
+  function useFlatMobileCarousel() {
+    return window.matchMedia('(max-width: 700px)').matches && isIOSDevice();
+  }
+
+  function updateFlatCarousel() {
+    for (let i = 0; i < itemCount; i++) {
+      const item = items[i];
+      const isActive = i === currIndex;
+      item.style.display = isActive ? 'flex' : 'none';
+      item.style.position = 'relative';
+      item.style.top = '';
+      item.style.left = '';
+      item.style.transform = 'none';
+      item.style.transformOrigin = '';
+      item.style.backfaceVisibility = '';
+      item.style.opacity = '1';
+      item.style.pointerEvents = isActive ? 'auto' : 'none';
+      item.style.zIndex = isActive ? '2' : '0';
+      item.classList.toggle('carousel__slider__item--active', isActive);
+    }
+
+    const activeCard = items[currIndex] ? items[currIndex].querySelector('.card') : null;
+    slider.style.width = '100%';
+    slider.style.maxWidth = '100%';
+    slider.style.margin = '0 auto';
+    slider.style.left = '0';
+    slider.style.transform = 'none';
+    slider.style.height = activeCard ? (activeCard.offsetHeight + 20) + 'px' : 'auto';
+  }
 
   function updateGeometry() {
+    if (useFlatMobileCarousel()) {
+      slider.style.width = '100%';
+      slider.style.maxWidth = '100%';
+      slider.style.height = 'auto';
+      slider.style.perspective = 'none';
+      return;
+    }
+
     // Card breedte ophalen uit CSS of DOM
     const card = items[0].querySelector('.card');
     const cardWidth = card ? card.offsetWidth : 320;
@@ -68,6 +112,15 @@
   }
 
   function setup3D() {
+    if (useFlatMobileCarousel()) {
+      slider.style.transformStyle = 'flat';
+      slider.style.position = 'relative';
+      slider.style.touchAction = 'pan-y';
+      updateGeometry();
+      updateFlatCarousel();
+      return;
+    }
+
     updateGeometry();
     slider.style.transformStyle = 'preserve-3d';
     slider.style.position = 'relative';
@@ -89,6 +142,11 @@
   }
 
   function update3D() {
+    if (useFlatMobileCarousel()) {
+      updateFlatCarousel();
+      return;
+    }
+
     // Always use 3D carousel, also on mobile
     for (let i = 0; i < itemCount; i++) {
       const item = items[i];
@@ -164,11 +222,13 @@
   }
 
   function bindEvents() {
+    if (eventsBound) return;
+    eventsBound = true;
+
     if (prevBtn) prevBtn.addEventListener('click', prev);
     if (nextBtn) nextBtn.addEventListener('click', next);
     window.addEventListener('resize', () => {
-      updateGeometry();
-      update3D();
+      setup3D();
     });
     
     // Swipe support
@@ -244,8 +304,7 @@
 
   window.addEventListener('orientationchange', () => {
     setTimeout(() => {
-      updateGeometry();
-      update3D();
+      setup3D();
     }, 120);
   });
 
