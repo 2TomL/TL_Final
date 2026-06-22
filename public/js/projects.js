@@ -31,8 +31,9 @@
   if (!carousel) return;
   const slider = carousel.querySelector('.carousel__slider');
   let items = Array.from(carousel.querySelectorAll('.carousel__slider__item'));
-  const isMobileProjects = window.matchMedia('(max-width: 700px)').matches;
-  if (!isMobileProjects) {
+
+  const shouldHideGraphicOnDesktop = window.matchMedia('(min-width: 701px) and (hover: hover) and (pointer: fine)').matches;
+  if (shouldHideGraphicOnDesktop) {
     items = items.filter(item => {
       const isGraphicProjectsCard = !!item.querySelector('.card-graphic-projects');
       if (isGraphicProjectsCard) {
@@ -41,6 +42,7 @@
       return !isGraphicProjectsCard;
     });
   }
+
   const prevBtn = carousel.querySelector('.carousel__prev');
   const nextBtn = carousel.querySelector('.carousel__next');
   if (!slider || !items.length) return;
